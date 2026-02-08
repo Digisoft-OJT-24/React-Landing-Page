@@ -1,0 +1,163 @@
+3.6.2.23 (February 27, 2025)
+	-21 Synchronized with TLibs 3.6.2.21
+	-21 Added web.config key "SMSBasicEdInOut" to send In/Out SMS notification
+	    to Basic Education students only (AC Solano)
+
+	    <add key="SMSBasicEdInOut" value="1"/>
+	-23 Synchronized with TLibs 3.6.2.23
+	-23 Fixed display of student info/picture when rec.Name or rec.Filename is null
+	    (LSA Iligan City)
+
+3.5.11.5 (November 10, 2024)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+
+3.5.10.23 (October 27, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 SIAS Online/PDF Generator: Upgraded to pdfmake v0.2.14
+
+3.5.9.3 (September 6, 2024)
+	-3  Fixed location of "Exit" when exit picture is increased
+	-3  Display updated Time regardless of the value of ToDisplayId
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+
+3.5.4.5 (April 14, 2024)
+	-4  Synchronized with Source Library 3.5.4.4
+	-4  Added support for displaying Employee Photo (ISU Cauayan City)
+	-5  Automatically updates WebEms Photo upon upload from SIAS Online 3.x (ISU Cauayan City)
+
+3.5.2.7 (February 7, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+
+3.4.9.12 (September 19, 2023)
+	-12 Synchronized with TLibs 3.4.9.12
+	-12 Changed retrieval of photos from "otrphoto" to "subphoto"
+
+3.4.8.15 (August 22, 2023)
+	-15 Synchronized with TLibs 3.4.8.15
+	-15 Added support for bypassing WebIDWriter security mark (SPUP Tuguegarao City)
+
+3.4.5.9 (May 18, 2023)
+	-9 Synchronized with TLibs 3.4.5.9
+
+3.4.4.7 (April 22, 2023)
+	-5 Synchronized with TLibs 3.4.4.5
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.3.15.30 (March 3, 2022)
+	-10 Synchronized with TLibs 3.3.15.10
+	-11 Fixed downloading of student ID picture (SSU Sorsogon City)
+	-12 Upgraded to SignalR 2.4.3
+	-16 Added support for WebReader client
+	-30 Synchronized with TLibs 3.3.15.30
+
+3.3.12.2 (May 25, 2021)
+	-2  Synchronized with TLibs 3.3.12.2
+
+3.3.11.92 (May 6, 2021)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-57 Synchronized with TLibs 3.3.11.57
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries
+	-86 Synchronized with TLibs 3.3.11.86
+	-91 Visitor ID Writer: Added entry for "Office to Visit" for visitors (NVSU Bayombong)
+	-91 EMS Server: Added support for saving Office for visitors (NVSU Bayombong)
+	-92 Visitor ID Writer: Increased entry for "Office to Visit" to 30 chars (NVSU Bayombong)
+
+3.3.10.83 (October 19, 2020)
+	-22  Synchronized with TLibs 3.3.10.22
+	-22  Added responsive UI for Mobile Phones
+	-83  Synchronized with TLibs 3.3.10.83
+	-83  Increased License capacity to 172 chars
+	-83  Fixed error "Unable to read data from the transport connection : An existing connection
+	     was forcibly closed by the remote host" by setting SecurityProtocol to TLS 1.x
+
+3.3.9 (July 18, 2020)
+	-18  Synchronized with TLibs 3.3.9.18
+
+3.3.8 (April 10, 2020)
+	-5  Synchronized with TLibs 3.3.8.5
+	-6  Added support for sending bulk SMS (UCC La Union)
+	-6  Removed property _curDateTime to prevent corruption
+	-6  Added high resolution timer library
+	-7  Fixed delayed time (UCC La Union, DWCSJ San Jose)
+  	-14 Upgraded SignalR to latest version 2.4.1
+	-15 Upgraded Flurl to latest version 2.8.2
+
+3.3.7 (January 21, 2020)
+	-1  Added support for automatic sending of SMS Notifications to
+	    parent, sponsor or guardian upon ENTRY and EXIT
+	-2  WebEms: Fixed unable to upload/download new version
+	-3  NEW SYSTEM-WebSms: An online real-time SMS Notifications sender
+	-3  NEW SYSTEM-VisitorIDWriter: An online real-time Visitor management 
+	    system using Smartcard IDs
+	-3  WebSms: Fixed re-sending of SMS Notifications for invalid
+	    contact numbers
+	-3  VisitorIDWriter: Added feature to send SMS Notification to visitor
+	    upon ENTRY and EXIT
+	-4  VisitorIDWriter: Fixed error "Authentication Failed" (Demo at PCU Manila)
+	-4  VisitorIDWriter: Added option to enable/disable Address entry
+	-4  WebSMS: Fixed error "Unknown SubId ??? with CardType ???" when Visitor
+	    Card is used by another visitor
+	-5  WebEms: Does not exit if upload of latest SFX failed (SICS Pasay)
+	-5  WebIDWriter: Added time-limited compatibility to old smartcards (CSPC Nabua)
+	-12 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-12 EMS Online: Edit wwwroot/ems/web.config, set targetFramework="4.7.2" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.7.2" />
+	        <httpRuntime targetFramework="4.7.2" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-13 Synchronized to TLibs 3.3.7.13
+	-14 WebEms: To force the program to run in lower version .NET Framework 4.5,
+	    edit WebEms.exe.config, change supportedRuntime sku="xxx" from 4.7.2 to 4.5:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	-15 WebIDWriter: Fixed error "Failed!" message for old cards (CSPC Nabua)
+	-15 EMS Server: Fixed message "Card already registered to account" even when
+	    "Overwrite Duplicate Card" is checked. (JBLCF Bacolod)
+	-19 Synchronized to TLibs 3.3.7.19
+	-19 WebIDWriter: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-19 VisitorIDWriter: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-19 WebEms: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-28 IMPORTANT! This release now requires .NET Framework version 4.8 at server
+	-28 EMS Online: Edit wwwroot/ems/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	
+3.3.6 (May 25, 2019)
+	-1  EMS Online/Installation:
+	    1.1 Create folders "C:\temp" (with read/execute security on Everyone)
+	    1.2 Create folders "C:\ems" (with read/execute security on Everyone)
+	    1.3 Create folders "docs", "pics" and "files" under "C:\ems" folder
+	    1.4 Create "wwwroot\dstc" folder
+	    1.5 Create virtual directory "dstc/ems" pointed to "C:\ems" folder
+	    1.6 Copy shared javascript files (ExcelJs, FileSaver, PdfMake, QooxDoo, Vfs_Fonts)
+		to "wwwroot\dstc\scripts" folder
+	    1.7 Extract qooxdoo5.0-resource.rar to "wwwroot\dstc" folder 
+	        (The extraction will create "wwwroot\dstc\resource" folder)
+	    1.8 Extract EmsOnline3.x-net45.rar to "wwwroot\ems" folder
+
+	-3  Random Filename: Decreased probability of duplicate at 51^18
+	-6  GET_LOCK: Ensured lock is released on exception
+	-7  License: New license key stored in database
+	-9  Fixed unable to automatically upgrade (SPUP Tuguegarao City)
+
+3.2.9 (January 29, 2018)
+	-12 Polling optimizations: replaced ConcurrentDictionary<readerName>
+            with Array[readerIndex]
+	-13 Detection of IDLE time, change polling time to 500ms
+	-13 Idle time is increased x 2 until maximum of 16 minutes
+	-14 More polling optimizations
+	-15 Logged smartcard readers info
+	-16 More improvements in card polling
+	-17 Removed unnecessary MySql.Data reference in WebEms

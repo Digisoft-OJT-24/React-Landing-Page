@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="1440" height="810" viewBox="0 0 1440 810">
+<defs>
+<clipPath id="clip_0">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_1">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_2">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 1467.4812H6000V1825.3237H0Z" clip-rule="evenodd"/>
+</clipPath>
+<clipPath id="clip_3">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_4">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_5">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M-264.8105 1765.1825 6094.821 1275.436 6117.829 1574.2114-241.8022 2063.9578-264.8105 1765.1825Z"/>
+</clipPath>
+<clipPath id="clip_6">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_7">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_8">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M225.50989 1530.107 6065.2517 2101.2886 6042.4816 2334.0904 202.7397 1762.9087 225.50989 1530.107Z"/>
+</clipPath>
+<clipPath id="clip_9">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_10">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_11">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M-277.11445 1110.7245 6329.2937 1769.2297 6278.728 2276.5225-327.67976 1618.0175-277.11445 1110.7245Z"/>
+</clipPath>
+<clipPath id="clip_12">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_13">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M0 0H6000V3375H0Z"/>
+</clipPath>
+<clipPath id="clip_14">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M-155.97406 1012.51296 5556.9455 1571.272 5534.176 1804.0737-178.74352 1245.3146-155.97406 1012.51296Z"/>
+</clipPath>
+</defs>
+<g clip-path="url(#clip_0)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M0 0H1920V1080H0Z" fill="#00000000"/>
+</g>
+<g clip-path="url(#clip_1)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M0 0H1920V1080H0Z" fill="#00000000"/>
+</g>
+<g clip-path="url(#clip_2)">
+<path transform="matrix(.3354774,0,0,.3354774,-41.841085,352.1955)" d="M0 0H4553V256H0Z" fill="#4294ce"/>
+</g>
+<g clip-path="url(#clip_3)">
+<g clip-path="url(#clip_4)">
+<g clip-path="url(#clip_5)">
+<path transform="matrix(.2801019,-.021570264,.021570264,.2801019,-63.554517,423.6438)" d="M0 0H5449V256H0Z" fill="#0c2e75"/>
+</g>
+</g>
+</g>
+<g clip-path="url(#clip_6)">
+<g clip-path="url(#clip_7)">
+<g clip-path="url(#clip_8)">
+<path transform="matrix(.2182515,.021347046,-.021347046,.2182515,54.12237,367.22569)" d="M0 0H6422V256H0Z" fill="#133e9f"/>
+</g>
+</g>
+</g>
+<g clip-path="url(#clip_9)">
+<g clip-path="url(#clip_10)">
+<g clip-path="url(#clip_11)">
+<path transform="matrix(.47558714,.047404976,-.047404976,.47558714,-66.50746,266.57389)" d="M0 0H3334V256H0Z" fill="#fea500"/>
+</g>
+</g>
+</g>
+<g clip-path="url(#clip_12)">
+<g clip-path="url(#clip_13)">
+<g clip-path="url(#clip_14)">
+<path transform="matrix(.21825157,.021346365,-.021346365,.21825157,-37.433774,243.0031)" d="M0 0H6282V256H0Z" fill="#133e9f"/>
+</g>
+</g>
+</g>
+<path transform="matrix(1,0,0,-1,0,817.92)" d="M-42.89812 384.94279H1333.6672V574.91738H-42.89812Z" fill-opacity="0"/>
+<path transform="matrix(1,0,0,-1,0,817.92)" d="M-78.64263 271.55497H1519.031V551.34658H-78.64263Z" fill-opacity="0"/>
+<path transform="matrix(1,0,0,-1,0,817.92)" d="M-63.554517 322.5697H1468.2789V511.81495H-63.554517Z" fill-opacity="0"/>
+<path transform="matrix(1,0,0,-1,0,817.92)" d="M-41.841085 379.8423H1485.4428V465.72453H-41.841085Z" fill-opacity="0"/>
+<path transform="matrix(1,0,0,-1,0,817.92)" d="M48.65785 257.73869H1455.6608V450.69465H48.65785Z" fill-opacity="0"/>
+</svg>

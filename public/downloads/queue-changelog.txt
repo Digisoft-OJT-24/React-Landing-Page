@@ -1,0 +1,135 @@
+3.5.11.5 (November 10, 2024)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+
+3.5.10.23 (October 27, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 SIAS Online/PDF Generator: Upgraded to pdfmake v0.2.14
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+
+3.5.7.19 (July 28, 2024)
+	-19 Synchronized with Source Library 3.5.7.19
+
+3.5.4.14 (April 27, 2024)
+	-14 Synchronized with Source Library 3.5.4.14
+
+3.5.2.17 (February 28, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+	-17 Synchronized with Source Library 3.5.2.17
+	-17 Fixed error "Unknown column 'type' in field list..." (ISU Cauayan City)
+
+3.4.9.12 (September 19, 2023)
+	-12 Synchronized with TLibs 3.4.9.12
+	-12 Changed retrieval of photos from "otrphoto" to "subphoto"
+
+3.4.7.3 (July 11, 2023)
+	-3  Synchronized with TLibs 3.4.7.3
+	-3  Converted "queue???" tables to the Aria engine
+
+3.4.6.7 (June 20, 2023)
+	-6  Synchronized with TLibs 3.4.6.6
+	-6  Removed usage of "connections" table (DWCSJ San Jose)
+	-7  Fixed error "Object reference not set to an instance..." (DWCSJ San Jose)
+
+3.4.5.9 (May 27, 2023)
+	-9  Synchronized with TLibs 3.4.5.9
+	-9  Upgrade Only: Added column 'type' in other queue?? tables (DWCSJ San Jose)
+
+3.4.4.7 (April 22, 2023)
+	-5  Synchronized with TLibs 3.4.4.5
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.3.12.2 (May 25, 2021)
+	-2  Synchronized with TLibs 3.3.12.2
+
+3.3.11.86 (April 24, 2021)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-57 Synchronized with TLibs 3.3.11.57
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries
+	-86 Synchronized with TLibs 3.3.11.86
+
+3.3.10.83 (October 19, 2020)
+	-22  Synchronized with TLibs 3.3.10.22
+	-22  Added responsive UI for Mobile Phones
+	-83  Synchronized with TLibs 3.3.10.83
+	-83  Increased License capacity to 172 chars
+	-83  Fixed error "Unable to read data from the transport connection : An existing connection
+	     was forcibly closed by the remote host" by setting SecurityProtocol to TLS 1.x
+
+3.3.8 (April 10, 2020)
+	-12 Synchronized with TLibs 3.3.8.12
+	-13 ALL Reports: Added progress report while processing
+  	-14 Upgraded SignalR to latest version 2.4.1
+	-15 Upgraded Flurl to latest version 2.8.2
+
+3.3.7 (January 21, 2020)
+	-1  Licensing: Fixed error "Length of the data to decrypt is invalid" (PSU Goa)
+	-2  Queue Server: Removed all WebIDWriter functionality
+	-3  Queue Server: Retained only retrieval of fingerprint templates
+	-4  IMPORTANT! Must upgrade database server to MariaDB 10.4.x or higher
+	-4  DATABASE: Upgrade ALL tables to Aria Engine
+	-7  Queue Display: Fixed error "QueueNo is null" when run first time without any records
+	-8  Added support for Visitor cards
+	-9  NEW FEATURE: Added estimation of time when queue no. will be served
+	-10 NEW FEATURE: Added SMS Notification which info include updated estimation of time
+	-11 Removed "Done" field which function already covered by "Called"
+	-12 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-12 Edit wwwroot/queue/web.config, set targetFramework="4.7.2" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.7.2" />
+	        <httpRuntime targetFramework="4.7.2" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-12 WebReader Client: Fixed retrieval of RFID account data (AC Solano)
+	-13 WebReader Client: Fixed crash when SIAS Desktop Smart Reader is not checked (JBLCF Bacolod City)
+	-14 WebQueue Client: To force the program to run in lower version .NET Framework 4.5,
+	    edit WebQueue.exe.config, change supportedRuntime sku="xxx" from 4.7.2 to 4.5:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	-19 Syncrhonized to TLibs 3.3.7.19
+	-19 WebQueue Client: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-19 WebReader Client: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-21 WebInfo Client: Displays particulars in Student ledger adjustments (ULS Santiago City)
+	-12 IMPORTANT! This release now requires .NET Framework version 4.8 at server
+	-12 Queue Server: Edit wwwroot/queue/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-28 WebInfo Client: Edit WebInfo.exe.config, set .NET Framework version to 4.5 shown below:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	-28 WebReader Client: Edit WebReader.exe.config, set .NET Framework version to 4.5 shown below:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+
+3.3.6 (July 17, 2019)
+	-1  Queue Online/Installation:
+	    1.1 Create folders "C:\temp" (with read/execute security on Everyone)
+	    1.2 Create folders "C:\queue" (with read/execute security on Everyone)
+	    1.3 Create folders "docs", "pics" and "files" under "C:\queue" folder
+	    1.4 Create "wwwroot\dstc" folder
+	    1.5 Create virtual directory "dstc/queue" pointed to "C:\queue" folder
+	    1.6 Copy shared javascript files (ExcelJs, FileSaver, PdfMake, QooxDoo, Vfs_Fonts)
+		to "wwwroot\dstc\scripts" folder
+	    1.7 Extract qooxdoo5.0-resource.rar to "wwwroot\dstc" folder 
+	        (The extraction will create "wwwroot\dstc\resource" folder)
+	    1.8 Extract queueOnline3.x-net45.rar to "wwwroot\queue" folder
+
+	-3  Random Filename: Decreased probability of duplicate at 51^18
+	-5  Upgrade: Automatically upgrade all "queue" and "queue_xxxx" databases
+	-6  GET_LOCK: Ensured lock is released on exception
+	-7  License: New license key stored in database
+	-8  Fixed unable to automatically upgrade WebInfo, WebQueue, 
+	    WebReader and WebIDWriter clients
+	-24 WebIDWriter: Detects duplicate serial number and warn user to REPLACE the card

@@ -1,0 +1,339 @@
+3.6.3.1 (March 3, 2025)
+	---!!! UPGRADE NOTES !!!--
+	Must delete "c:\payroll\cache" folder
+
+	-1 Synchronized with TLibs 3.6.3.1
+	-1 Classifications: Added entries "Base Units" and "Base Multiplier" (CPU Iloilo City)
+	-1 Income: Added option "Overload" (CPU Iloilo City)
+	-1 NEW MODULE: "Load Units" at Transactions (CPU Iloilo City)
+
+3.6.2.2 (February 3, 2025)
+	-1 Synchronized with TLibs 3.6.2.1
+	-1 Deductions Report: Added column "Balance" (CPU Iloilo City)
+	-1 Positions: Increase capacity to 2 bytes or 65,536 records (CPU Iloilo City)
+	-1 Designations: Increase capacity to 2 bytes or 65,536 records (CPU Iloilo City)
+	-2 Deductions Report: Balance column is historical based on Date (CPU Iloilo City)
+	   NOTE: Change the date to display the Balance in that particular period
+
+3.5.12.11 (December 11, 2024)
+	-11 Synchronized with TLibs 3.5.12.11
+	-11 NEW MODULE: Employees Initial Passwords at Tools (CPU Iloilo City) 
+
+3.5.11.5 (November 10, 2024)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+
+3.5.10.24 (October 30, 2024)
+	-23 Synchronized with Source Library 3.5.10.23
+	-23 Deductions Report: Added selection "Pay" (DWCSJ San Jose)
+	-23 Income Report: Added selection "Pay" (DWCSJ San Jose)
+	-24 Individual Payroll: Fixed retrieval of PaySlip Logo (DWCSJ San Jose)
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+	-30 Export Employees to AMS: Added support for the configuration of "AmsDb" in web.config
+
+3.5.7.20 (July 28, 2024)
+	-16 Synchronized with Source Library 3.5.7.16
+	-16 Import Employees Info: Added fields "Date Hired" and "Job Status"
+	-19 Reports: Fixed disabled "Refresh" button when "100%" is displayed
+	-20 Users: Fixed error "Unknown column 'sub' in field list (CPU Iloilo city)
+	-20 NEW REPORT: Activity Log at Tools
+
+3.5.4.14 (April 27, 2024)
+	-14 Synchronized with Source Library 3.5.4.14
+
+3.5.3.2 (March 14, 2024)
+	-2  Synchronized with Source Library 3.5.3.2
+	-2  Income: Increased capacity of "id" column to Unsigned Short (2 bytes)
+
+3.5.2.7 (February 7, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+
+3.4.9.13 (September 25, 2023)
+	-13 Synchronized with TLibs 3.4.9.13
+	-13 Salary Income: Increase decimal places for Rate to 3 (CatSU Virac)
+
+3.4.8.16 (August 24, 2023)
+	-16 Synchronized with TLibs 3.4.8.16
+	-16 Users: Changed field types of Code and Name from CHAR to VARCHAR 
+
+3.4.4.7 (April 22, 2023)
+	-4  Synchronized with TLibs 3.4.4.4
+	-5  Reports: Fixed spacing of top entries and buttons
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.4.3.2 (March 5, 2023)
+	-1  Synchronized with TLibs 3.4.3.2
+
+3.4.1.5  (January 15, 2023)
+	-4  Synchronized with TLibs 3.4.1.4
+	-4  Fixed import of employee info
+	-5  Employees: Added column 'Dept'
+	-5  General Payroll: Added filter for 'Dept' (CATSU Virac)
+
+3.3.22.3 (November 23, 2022)
+	-3  Synchronized with TLibs 3.3.22.3
+	-3  Compute Payroll: Do not compute Absences or Tardiness when there is
+	    no uploaded data under HOURLY or DAILY salary grade types (OLLCF Daet)
+
+3.3.21.20 (October 15, 2022)
+	-20 Synchronized with TLibs 3.3.21.20
+	-20 Show more meaningful message when Tax code is not found in Tax Exemptions
+	    effective on/before payroll date (Demo at TAU)
+
+3.3.20.5 (August 11, 2022)
+	-5  Synchronized with TLibs 3.3.20.5
+	-5  Deductions: Prevent deletion of deduction if it exists in DedLedger (DWCSJ San Jose)
+
+3.3.15.35 (March 10, 2022)
+	-10  Synchronized with TLibs 3.3.15.10
+	-10  Employee: Fixed Reset Password not working (DWCSJ San Jose)
+	-12  Upgraded to SignalR 2.4.3
+	-35  Synchronized with TLibs 3.3.15.35
+	-35  Compute Payroll: Fixed error "Index was outside the bounds..." (PCU Dasmarinas)
+
+3.3.14.41 (December 9, 2021)
+	-39  Synchronized with TLibs 3.3.14.39
+	-39  Added Caching layers for some lookup tables
+	-41  Synchronized with TLibs 3.3.14.41
+
+3.3.12.49 (August 2, 2021)
+	-1  Synchronized with TLibs 3.3.12.2
+	-2  Tools-Options: Added entry for "Logo" click to upload the main Logo
+	-5  Override Premiums: Allows period to be empty which means that the amount will be
+	    applied to all periods (OLLCF Daet)
+	-49 Synchronized with TLibs 3.3.12.49
+	-49 Income: Added delete blocking table "IncLedger" (OLLCF Daet)
+	-49 Income: Fixed error "Object reference..." by restoring deleted Income ID: 20 (OLLCF Daet)
+
+3.3.11.86 (April 22, 2021)
+	-8  Synchronized with TLibs 3.3.11.8
+	-8  Upload Attendance Summary:  Fixed double entry in Late/Absences when Salary Income has:
+	    two (2) Absences (for Basic-Absences and Incentive-Absences) or 
+	    two (2) Tardiness (for Basic-Tardiness and Incentive-Tardiness) (OLLCF Daet)
+	-9  Users / Access Levels: Added privilege "L: Lock Period" (OLLCF Daet)
+	-9  Periods: Added entry for "Locked" date (OLLCF Daet)
+	-9  Periods: Added columns "Payroll Period" and "Locked" in list (OLLCF Daet)
+	-9  Compute Payroll: Disable "Compute" button when period is already locked (OLLCF Daet)
+	-10 Tools - Options: Added entry for "15th Lock Day", "30th Lock Day" and "Lock Hour" which 
+	    becomes the default lock day/hour for 15th and 30th salary (OLLCF Daet)
+	-11 NEW MODULE: Lock module at Files used for locking the Income and Deductions of employees
+	    (OLLCF Daet)
+	-11 Lock: Added option to lock all income or deductions (don't choose any income or deduction)
+	-11 Lock: Added option to lock the income/deductions of all employees (don't choose any employee)
+	    (OLLCF Daet)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-57 Synchronized with TLibs 3.3.11.57
+	-58 Recompiled due to failure in source code obfuscation (OLLCF Daet)
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries
+	-61 Others: Fixed display of Other forms for Mobile
+	-61 Personal Data Sheet: Fixed UI for Mobile
+	-86 Synchronized with TLibs 3.3.11.86
+ 	-86 PhilHealth Premium Rate: If Rate is 10 or higher, it will be used as Fixed Amount (OLLCF Daet)
+
+3.3.10.83 (October 18, 2020)
+	-22  Synchronized with TLibs 3.3.10.22
+	-22  Added responsive UI for Mobile Phones
+	-70  Synchronized with TLibs 3.3.10.70
+	-70  Fixed generation of PaySlip PDF report
+	-70  Fixed uploading of pictures or documents in Employee PDS
+	-75  Synchronized with TLibs 3.3.10.75
+	-76  Individual Payroll: Added column "PERAA Premium" (UCC San Fernando city)
+	-83  Synchronized with TLibs 3.3.10.83
+	-83  Increased License capacity to 172 chars
+
+3.3.8 (May 23, 2020)
+	-43 Synchronized with TLibs 3.3.8.43
+	-44 Removed debugging line from loading scripts
+
+3.3.8 (April 10, 2020)
+	-1  PDF Reports: Added options for Maximum Title Height and Maximum Row Height (BIPSU Naval)
+	-2  General Payroll/Signatories: Added entry for Top heading, Signature headings
+	    and Widths (BIPSU Naval)
+	-3  Income/Deduction Reports: Added option to filter by classification (BIPSU Naval)
+	-3  GSIS/SSS/PhilHealth/Pagibig Premium Reports: Added option to filter by classification (BIPSU Naval)
+	-3  Withholding Tax/Net Pay Reports: Added option to filter by classification (BIPSU Naval)
+	-4  Compute Payroll: Fixed computation of total taxable for remaining months (UCC La Union)
+	-4  Departments: Fixed error "Incorrect integer value for column 'Level'" (UCC La Union)
+	-9  PDF Report: Now displayed within the application to avoid popup blocker
+	-10 PDF Report: Generates PDF report in the background to avoid freezing the UI
+	-11 PDF Report: Prevents reloading of PDF generator in background worker
+	-13 ALL Reports: Added progress report while processing
+  	-14 Upgraded SignalR to latest version 2.4.1
+	-15 Upgraded Flurl to latest version 2.8.2
+	-15 User Access Levels: Added button "Add Level" to add other same level 
+	    menus which is useful when enabling a newly added menu without disabling the 
+	    other same level menus
+
+3.3.7 (February 16, 2020)
+	-1  Licensing: Fixed error "Length of the data to decrypt is invalid" (PSU Goa)
+	-2  Upgraded to TLibs 3.3.7.3
+	-3  SSS Premium, Philhealth Premium: Added option to add COLA (OLLCF Daet)
+	-4  Payroll Generation: Fixed computation of Premiums with added COLA (OLLCF Daet)
+	-4  Payslip Report: Removed 1st Pay and 2nd Pay for Semi-monthly periods (OLLCF Daet)
+	-5  IMPORTANT! Upgrade database server to MariaDB 10.4.x or higher
+	-5  DATABASE: Upgrade ALL tables to Aria Engine
+	-6  Override Deduction: Allows 0.0 as override amount
+	-7  Classifications: Added support for PERAA Premium computation (UCC La Union)
+	-7  Tools-Options: Added option to compute SSS Premium based on Gross income
+	    ignoring absences & tardiness (UCC La Union)
+	-8  Fixed computation of 30th SSS Premium when Overtime is on the 15th (UCC La Union)
+	-8  General Payroll: Fixed export to MS Excel of amounts with parentheses (UCC La Union)
+	-13 Synchronized with TLibs 3.3.7.13
+	-14 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-14 Payroll Online: Edit wwwroot/payroll/web.config, set targetFramework="4.7.2" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.7.2" />
+	        <httpRuntime targetFramework="4.7.2" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-19 IMPORTANT! This release now requires .NET Framework version 4.8
+	-19 Payroll Online: Edit wwwroot/payroll/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-22 Periods: Added support for two(2) Payments (Weekly) for Semi-Monthly (OLLCF Daet)
+	-22 General Payroll/Individual Payroll/Payslip: Added support for two(2) Payments (weekly) 
+	    for Semi-Monthly (OLLCF Daet)
+	-24 Tools/Options: Added option to specify whether to charge the difference of 0.01 to
+	    employee or employer (BiPSU Naval)
+	-28 User Access: Increased capacity of "menu" to 255 chars
+	-28 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-28 Payroll Online: Edit wwwroot/payroll/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-29 General Payroll: Added entry for Signatories (BiPSU Naval)
+
+3.3.6 (June 14, 2019)
+	-1  Payroll Online/Installation:
+	    1.1 Create folders "C:\temp" (with read/execute security on Everyone)
+	    1.2 Create folders "C:\payroll" (with read/execute security on Everyone)
+	    1.3 Create folders "docs", "pics" and "files" under "C:\payroll" folder
+	    1.4 Create "wwwroot\dstc" folder
+	    1.5 Create virtual directory "dstc/payroll" pointed to "C:\payroll" folder
+	    1.6 Copy shared javascript files (ExcelJs, FileSaver, PdfMake, QooxDoo, Vfs_Fonts)
+		to "wwwroot\dstc\scripts" folder
+	    1.7 Extract qooxdoo5.0-resource.rar to "wwwroot\dstc" folder 
+	        (The extraction will create "wwwroot\dstc\resource" folder)
+	    1.8 Extract PayrollOnline3.x-net45.rar to "wwwroot\payroll" folder
+
+	-3  Random Filename: Decreased probability of duplicate at 51^18
+	-5  Collapsable: Fixed enable/disable controls
+	-5  Upgrade: Automatically upgrade all "payroll" and "payroll_xxxx" databases
+	-6  GET_LOCK: Ensured lock is released on exception
+	-7  Income: Added checkbox "From COLA" when Absences or Tardiness is selected (NVSU Bayombong)
+	-7  Compute Payroll: Added separate columns for Absences and Tardiness from COLA (NVSU Bayombong)
+	-7  Deduction: Added checkbox "Mandatory Premium" (NVSU Bayombong)
+	-7  Compute Payroll: Added support for deductions tagged as mandatory premium
+	    which are deducted from taxable amount (NVSU Bayombong)
+	-8  Personal Data Sheet: Fixed Add, Edit & Delete privileges for Employees (Demo at UDM Manila)
+
+3.3.5  (April 26, 2019)
+	-13 Synchronized with TLibs 3.3.5.13
+	-13 Dialogs: Automatically set focus to first entry control
+	-16 Login: Fixed display of user names with Ñ
+	-17 Navigation/Report/Other Forms: Automatically set focus to first entry control
+	-17 Personal Data Sheet: Optimized per section retrieval of data
+	-17 Personal Data Sheet/Children: Added option to upload Photos
+	-17 Personal Data Sheet/Children: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Children: Unlimited number of records 
+	-17 Personal Data Sheet/Educational Background: Added option to upload Certificates
+	-17 Personal Data Sheet/Educational Background: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Educational Background: Unlimited number of records 
+	-17 Personal Data Sheet/Civil Service Eligibility: Added option to upload Certificates
+	-17 Personal Data Sheet/Civil Service Eligibility: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Civil Service Eligibility: Unlimited number of records 
+	-17 Personal Data Sheet/Work Experience: Added option to upload Certificates
+	-17 Personal Data Sheet/Work Experience: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Work Experience: Unlimited number of records 
+	-17 Personal Data Sheet/Civic Organization: Added option to upload Certificates
+	-17 Personal Data Sheet/Civic Organization: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Civic Organization: Unlimited number of records 
+	-17 Personal Data Sheet/Trainings and Seminars: Added option to upload Certificates
+	-17 Personal Data Sheet/Trainings and Seminars: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Trainings and Seminars: Unlimited number of records 
+	-17 Personal Data Sheet/Special Skills & Membership: Added option to upload Certificates
+	-17 Personal Data Sheet/Special Skills & Membership: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/Special Skills & Membership: Unlimited number of records 
+	-17 Personal Data Sheet/References: Added option to upload Certificates
+	-17 Personal Data Sheet/References: Added Edit button option to add, update & delete
+	-17 Personal Data Sheet/References: Unlimited number of records 
+	-18 GSIS Premium Report: Added first column GSIS No
+	-18 SSS Premium Report: Added first column SSS No
+	-18 PhilHealth Premium Report: Added first column PhilHealth No
+	-18 Pagibig Premium Report: Added first column Pagibig No
+	-18 Withholding Tax Report: Added first column TIN
+	-18 Net Pay Reports: Added first column Account No
+	-19 Personal Data Sheet: Fixed unable to upload Cert/Photo by employee level (Demo at AC Solano)
+
+3.3.4 (February 18, 2019)
+	-1  Synchronized Upgrade to TLibs 3.3.4.1
+	-2  SSS/GSIS/PhilHealth/PAGIBIG Premium: Deducts absences/tardiness 
+            before computing premiums (NVSU, ULS)
+	-3  Overtime: Added entry for Income
+	-4  Hourly Income: Added entry for Overtime
+	-5  Compute Payroll: Added support for multiple overtime computation
+	-6  Options: Added option to specify if absences & tardiness is deducted from
+	    basic salary before computing the SSS/GSIS, Philhealth or Pagibig premium
+	-6  Fixed unable to save Municipality after editing profile
+	-13 Firefox v65: Fixed shortcut keys like F2, F4, F9 and Arrow Keys in table 
+	    no longer working due to Firefox v65 update
+	-14 Fixed reloading UI framework when version is changed
+	-15 Updated PDF generator (PDFMake) to latest version 0.1.53
+	-15 Updated FileSaver.js to latest version 2.0.1
+
+3.3.3 (November 18, 2018)
+	-13 Synchronized Upgrade to TLibs 3.3.3.13
+	-14 SECURITY FEATURE: Applied obfuscation to javascript files
+	-14 SECURITY/Login: Added option to mouse over the chars in the password
+	-14 SECURITY/Authentication: Added salt to authentication parameter
+	-14 SECURITY: Disabled Query Stacking to prevent SQL Injection
+	-14 SECURITY: Encrypted SELECT statements to prevent SQL Injection
+
+3.3.2 (August 23, 2018)
+	-17 Synchronized Upgrade to TLibs 3.3.2.17
+	-17 Upgrade to PDFMake 0.1.37
+	-17 Login: Fixed TAB key not functioning in Firefox browser
+	-17 Modal Dialogs: Fixed ENTER and ESCAPE keys not functioning in Firefox browser
+	-17 Search Window: Added shortcut key DOWN to go to list and ENTER to accept selection
+
+3.3.1 (July 11, 2018)
+	-7  NEW FEATURE: The client browser can now save all reports as Excel (.xlsx)
+	-12 Fixed generation of PDF and XLS when date range is empty (SSC Sorsogon)
+	-13 Fixed error syntax error near 'over,notover,... (WPU Palawan)
+        This error appears only in MariaDB 10.2 or higher
+	-14 PhilHealth: Added support for new monthly premium computation (WPU Palawan)
+        from PhilHealth Advisory no. 2017-0054
+	-18 User Access Level: Increased capacity of Menu Access
+
+3.2.6 (April 2, 2017)
+	-7  Personal Data Sheet: Changed entry for Occupation to TextBox (LNU Tacloban)
+	-7  Personal Data Sheet: Changed entry for Name of School and Degree/Course to TextBox (LNU Tacloban)
+	-7  Personal Data Sheet: Changed ALL municipality related related entry to TextBox (LNU Tacloban)
+	-7  Personal Data Sheet: Maximizes screen so user need not adjust width of data entry area (LNU Tacloban)
+	-8  Deductions: Added selection entry for ID No to display in report (LNU Tacloban)
+	-8  Income: Added selection entry for ID No to display in report (LNU Tacloban)
+	-8  NEW REPORT-Deduction Report: Generates deductions summary for affected employees (LNU Tacloban)
+	-8  NEW REPORT-Income Report: Generates income summary for affected employees (LNU Tacloban)
+	-9  NEW REPORT-GSIS/SSS Premium Report (LNU Tacloban)
+	-9  NEW REPORT-PhilHealth Premium Report (LNU Tacloban)
+	-9  NEW REPORT-Pagibig Premium Report (LNU Tacloban)
+	-9  NEW REPORT-Withholding Tax Report (LNU Tacloban)
+	-9  NEW REPORT-Net Salary Report (LNU Tacloban)
+	-10 Classifications: Added entry for Fixed tax rate i.e. Contractual and Job Order (WPU Palawan)
+	-10 Classifications: Added option to disable computation of mandatory deductions (WPU Palawan)
+	-11 Compute Payroll: Shows meaningful error message when tax code has no match in exemptions (LNU Tacloban)
+	-12 Compute Payroll: Fixed computation of tax (LNU Tacloban)
+	-13 Searching: Now automatically refresh data after entering at least 3 chars
+	-14 Tools-Options: User-defined caption for Tax, Insurance, Philhealth and Pagibig premiums (LNU Tacloban)
+	-15 General Payroll: Added columns for 1st Pay and 2nd Pay (LNU Tacloban)
+	-16 Pay Slip: Display of Net Pay, Moved 1st Pay on top of 2nd Pay (LNU Tacloban)

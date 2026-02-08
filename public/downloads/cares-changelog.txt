@@ -1,0 +1,87 @@
+3.5.10.23 (October 27, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 SIAS Online/PDF Generator: Upgraded to pdfmake v0.2.14
+
+3.5.9.3 (September 6, 2024)
+	-3  Fixed location of "Exit" when exit picture is increased
+	-3  Display updated Time regardless of the value of ToDisplayId
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+
+3.5.7.19 (July 27, 2024)
+	-19 Synchronized with Source Library 3.5.7.19
+
+3.5.4.14 (April 27, 2024)
+	-14 Synchronized with Source Library 3.5.4.14
+
+3.5.2.7 (February 7, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+
+3.4.12.4 (December 7, 2023)
+	-1 Members: Added entry for "Leader"
+	-1 Member Profile: Added entry for "Province" under Home Address and Current Address
+	-1 Member List: Added filter for Province, Municipality, Barangay and Leader
+	-1 Member List: Added Order By: Name, Sex, Address-Name, Address-Sex
+	-2 Fixed disabled sub-menu "Upload Photo"
+	-2 NEW MODULE: Entry of Classifications at Files
+	-3 Classifications: Added button "Members" to input the members of a particular classification
+	-4 Member List: Added filter by at most three (3) Classifications
+	-4 Member List: Added conditions "AND" to satisfy all classifications and 
+	   "OR" to satisfy just one of the classifications specified.
+	
+
+3.4.11.9 (November 30, 2023)
+	-9 Synchronized with TLibs 3.4.11.9
+
+3.4.9.13 (September 24, 2023)
+	-13 Synchronized with TLibs 3.4.9.13
+	-13 CaresIDWriter: Added selection of "Member", "Leader", "Employee", "Security", 
+	    "Management", "Visitor"
+	-13 CaresWebEms: Added entry/exit monitoring using Smartcards on 
+	    Turnstiles/Flap Barrier
+
+3.4.8.16 (August 24, 2023)
+	-16 Synchronized with TLibs 3.4.8.16
+	-16 Users: Changed field types of Code and Name from CHAR to VARCHAR 
+
+3.4.4.7 (April 22, 2023)
+	-4  Synchronized with TLibs 3.4.4.4
+	-5  Reports: Fixed spacing of top entries and buttons
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.4.3.2 (March 5, 2023)
+	-1  Synchronized with TLibs 3.4.3.2
+
+3.3.22.2 (October 22, 2022)
+	-1  Tools-Options: Added support for uploading rectangular logo
+	-2  Tools-Options: Added checkbox "Hide Name" to hide name of organization
+
+3.3.21.20 (October 22, 2022)
+	-15  INITIAL RELEASE
+	-15 NEW MODULES: Entry of Barangays, Municipalities, Calendar of Activities
+	     Leaders and Accounts
+	-15 NEW MODULES: Entry of Registration Requirements and Schedule
+	-15 NEW MODULE: Application for Registration
+	-16 Barangays: Added entry for Municipality
+	-16 Users: Added entry for Access Level
+	-16 Application for Registration: Removed entry for "Purok"
+	-16 Application for Registration: Added uploading of Required Documents
+	-17 Application for Registration: Entry of Municipality (Bayan) now uses SelectionBox
+	-17 Application for Registration: Entry of Barangay now uses SelectionBox
+	-17 Application for Registration: Filter list of Barangays based on selected Municipality
+	-18 Application for Registration: Changed to "Approval for Interview"
+	-18 Registration Results: Changed to "Approval for Registration"
+	-18 Approval for Registration: Automatic creation of account after inputting 1 or higher
+	-18 Create Account: Automatic creation of account after inputting 1 or higher
+	-18 Create Account: Entry of Municipality (Bayan) now uses SelectionBox
+	-18 Create Account: Entry of Barangay now uses SelectionBox
+	-18 Create Account: Filter list of Barangays based on selected Municipality
+	-19 Application for Registration: Removed entry for Family Background
+	-20 Customer Name: Added option to style the initial letters
+
+
+

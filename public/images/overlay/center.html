@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Overlay - CSS Version</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .overlay-container {
+            width: 1440px;
+            height: 810px;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        /* Clip path definitions */
+        .clip-0,
+        .clip-1,
+        .clip-3,
+        .clip-4,
+        .clip-6,
+        .clip-7,
+        .clip-9,
+        .clip-10,
+        .clip-12,
+        .clip-13 {
+            clip-path: polygon(0 0, 1440 0, 1440 810, 0 810);
+        }
+
+        .clip-2 {
+            clip-path: polygon(0 352.1955, 1440 352.1955, 1440 437.8376, 0 437.8376);
+        }
+
+        .clip-5 {
+            clip-path: polygon(-63.5545 423.6438, 1385.4455 423.6438, 1408.4535 377.7806, -40.5505 377.7806);
+        }
+
+        .clip-8 {
+            clip-path: polygon(54.1224 367.2257, 1494.1224 367.2257, 1471.3523 560.1817, 31.3523 560.1817);
+        }
+
+        .clip-11 {
+            clip-path: polygon(-66.5075 266.5739, 1267.4925 266.5739, 1244.2205 546.5225, -89.7795 546.5225);
+        }
+
+        .clip-14 {
+            clip-path: polygon(-37.4338 243.0031, 1507.5662 243.0031, 1484.7971 435.9591, -60.2029 435.9591);
+        }
+
+        /* Base transparent rectangles */
+        .base-rect-0,
+        .base-rect-1 {
+            position: absolute;
+            width: 1440px;
+            height: 810px;
+            background: transparent;
+        }
+
+        /* Blue rectangle (#4294ce) */
+        .rect-blue {
+            position: absolute;
+            width: 4553px;
+            height: 256px;
+            background: #4294ce;
+            transform: matrix(0.3354774, 0, 0, 0.3354774, -41.841085, 352.1955);
+            transform-origin: 0 0;
+        }
+
+        /* Dark blue rectangle (#0c2e75) */
+        .rect-dark-blue-1 {
+            position: absolute;
+            width: 5449px;
+            height: 256px;
+            background: #0c2e75;
+            transform: matrix(0.2801019, -0.021570264, 0.021570264, 0.2801019, -63.554517, 423.6438);
+            transform-origin: 0 0;
+        }
+
+        /* Dark blue rectangle (#133e9f) - first */
+        .rect-dark-blue-2 {
+            position: absolute;
+            width: 6422px;
+            height: 256px;
+            background: #133e9f;
+            transform: matrix(0.2182515, 0.021347046, -0.021347046, 0.2182515, 54.12237, 367.22569);
+            transform-origin: 0 0;
+        }
+
+        /* Orange rectangle (#fea500) */
+        .rect-orange {
+            position: absolute;
+            width: 3334px;
+            height: 256px;
+            background: #fea500;
+            transform: matrix(0.47558714, 0.047404976, -0.047404976, 0.47558714, -66.50746, 266.57389);
+            transform-origin: 0 0;
+        }
+
+        /* Dark blue rectangle (#133e9f) - second */
+        .rect-dark-blue-3 {
+            position: absolute;
+            width: 6282px;
+            height: 256px;
+            background: #133e9f;
+            transform: matrix(0.21825157, 0.021346365, -0.021346365, 0.21825157, -37.433774, 243.0031);
+            transform-origin: 0 0;
+        }
+
+        /* Invisible rectangles (for layout/spacing) */
+        .invisible-rect {
+            position: absolute;
+            background: transparent;
+            opacity: 0;
+        }
+
+        .invisible-rect-1 {
+            left: -42.89812px;
+            top: 243.00262px;
+            width: 1376.56532px;
+            height: 189.97459px;
+        }
+
+        .invisible-rect-2 {
+            left: -78.64263px;
+            top: 266.57342px;
+            width: 1597.67363px;
+            height: 279.79161px;
+        }
+
+        .invisible-rect-3 {
+            left: -63.554517px;
+            top: 306.10505px;
+            width: 1531.833417px;
+            height: 189.24525px;
+        }
+
+        .invisible-rect-4 {
+            left: -41.841085px;
+            top: 352.19547px;
+            width: 1527.283885px;
+            height: 85.8402px;
+        }
+
+        .invisible-rect-5 {
+            left: 48.65785px;
+            top: 367.22535px;
+            width: 1407.00295px;
+            height: 192.95596px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay-container">
+        <!-- Base transparent rectangles -->
+        <div class="base-rect-0 clip-0"></div>
+        <div class="base-rect-1 clip-1"></div>
+
+        <!-- Blue rectangle -->
+        <div class="rect-blue clip-2"></div>
+
+        <!-- Dark blue rectangle 1 -->
+        <div class="rect-dark-blue-1 clip-3 clip-4 clip-5"></div>
+
+        <!-- Dark blue rectangle 2 -->
+        <div class="rect-dark-blue-2 clip-6 clip-7 clip-8"></div>
+
+        <!-- Orange rectangle -->
+        <div class="rect-orange clip-9 clip-10 clip-11"></div>
+
+        <!-- Dark blue rectangle 3 -->
+        <div class="rect-dark-blue-3 clip-12 clip-13 clip-14"></div>
+
+        <!-- Invisible rectangles -->
+        <div class="invisible-rect invisible-rect-1"></div>
+        <div class="invisible-rect invisible-rect-2"></div>
+        <div class="invisible-rect invisible-rect-3"></div>
+        <div class="invisible-rect invisible-rect-4"></div>
+        <div class="invisible-rect invisible-rect-5"></div>
+    </div>
+</body>
+</html>
+

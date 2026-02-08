@@ -1,0 +1,401 @@
+3.5.1.26 (January 26, 2024)
+	-26 Synchronized with TLibs 3.6.1.26
+
+3.5.11.5 (November 10, 2024)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+
+3.5.10.23 (October 27, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 SIAS Online/PDF Generator: Upgraded to pdfmake v0.2.14
+
+3.5.9.2 (September 5, 2024)
+	-2  SIAS Desktop/Connection: WebSocket is replaced by standard HTTP connection
+	-2  SIAS Online/Connection: Added HTTP API for SIAS Desktop
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+
+3.5.7.16 (July 26, 2024)
+	-16 Synchronized with Source Library 3.5.7.16
+
+3.5.4.14 (April 27, 2024)
+	-14 Synchronized with Source Library 3.5.4.14
+
+3.5.3.7 (March 19, 2024)
+	-7  Synchronized with Source Library 3.5.3.7
+	-7  Created table "reportfiles" under "ams_files" database (BIPSU Naval)
+
+3.5.2.7 (February 7, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+
+3.4.10.10 (October 30, 2023)
+	-8  Synchronized with Source Library 3.4.10.8
+	-8  AMS Online: Initial release of browser-based / mobile-friendly UI for AMS Online 3.x
+	-8  AMS Online: Added entry of Branches
+	-8  AMS Online: Added entry of Employees
+	-8  AMS Online: Added entry of Tools-Options
+	-9  AMS Online: Added module for Uploading Photo at File
+	-9  AMS Online-Employees: Added button "Generate PIN" 
+	-9  AMS Online-Employees: Added button "Upload Photo" 
+
+	---!!! UPGRADE NOTES !!!--
+	Must delete "c:\ams\cache" folder
+
+	-10 AMS Online: Added entry of Departments
+	-10 AMS Online-NEW REPORT: "In/Out Report"
+	-10 AMS Online-Employees: Added button "Reset Password"
+	-10 AMS Online: Added login access to "Accounts"
+
+3.4.5.5 (May 9, 2023)
+	-5  Synchronized with TLibs 3.4.5.5
+	-5  Attendance Summary: Removed Export button (NOTE: To export the data
+ 	    to Payroll, click Tools - Save As - Raw Data to MS Excel 2007)
+	-5  Daily Time Record: Fixed error "Field RegIn6 not found" (NONESCOST Sagay City)
+	    
+3.4.4.8 (April 23, 2023)
+	-5  Synchronized with TLibs 3.4.4.5
+	-6  Connection Pool: Set connection lifetime to 28 minutes
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+	-8  Search: Remove non-alphanumeric characters
+
+3.3.15.12 (February 9, 2022)
+	-12  Synchronized with TLibs 3.3.15.12
+
+3.3.12.23 (July 3, 2021)
+	-1  Synchronized with TLibs 3.3.12.2
+	-2  Added option for storing the main Logo
+	-19 Synchronized with TLibs 3.3.12.19
+	-19 Fixed error when uploading AMS SFX which already exist in server's
+	    "c:\ams\files" folder
+	-23 Gate Pass: Fixed error "Variable Id not found" when editing a record (OLLCF Daet)
+	-23 Official Business: Fixed error "Variable nDate not found" when edit a record (OLLCF Daet)
+	-23 Daily Time Record: Fixed computation of Official Business (OLLCF Daet)
+
+3.3.11.86 (April 24, 2021)
+	-4  Synchronized with TLibs 3.3.11.4
+	-4  AMS Desktop: Fixed buffering issue in HTTPS connections (AC Solano)
+	-18 Synchronized with TLibs 3.3.11.18
+	-18 AMS Desktop/Regular Schedule: Fixed error "Variable ID not found" (ISU Cauayan)
+	-18 AMS Desktop/Accounts: Fixed error "Numeric Overflow. Data was lost" (ISU Cauayan)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-32 Added config "SmartcardAtt" used when Smartcard IDs can also be used for 
+	    recording Attendance (ISU Cauayan City, NVSU Bayombong)
+	    
+	    TECHNICAL SUPPORT: Add the following in WebAms.exe.config
+		<setting name="Smartcard" serializeAs="String">
+                    <value>True</value>
+            	</setting>	
+		<setting name="SmartcardAtt" serializeAs="String">
+                    <value>True</value>
+            	</setting>	
+	-57 Synchronized with TLibs 3.3.11.57
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries
+	-86 Syncrhonized with TLibs 3.3.11.86
+
+3.3.10.83 (October 20, 2020)
+	-22  Synchronized with TLibs 3.3.10.22
+	-22  Added responsive UI for Mobile Phones
+	-83  Synchronized with TLibs 3.3.10.83
+	-83  Increased License capacity to 172 chars
+	-83  Fixed error "Unable to read data from the transport connection : An existing connection
+	     was forcibly closed by the remote host" by setting SecurityProtocol to TLS 1.x
+	     (LPC Santiago city)
+
+3.3.8 (April 10, 2020)
+	-5  Synchronized with TLibs 3.3.8.5
+	-6  Removed property _curDateTime to prevent corruption
+	-6  Added high resolution timer library
+	-7  Fixed delayed time (UCC La Union, DWCSJ San Jose)
+	-12 Synchronized with TLibs 3.3.8.12
+	-13 AMS Desktop: Improved internet connectivity using Flurl HTTP library
+	-14 AMS Desktop: Upgraded SignalR to latest version 2.4.1
+	-14 AMS Desktop: Use Flurl for large requests only
+	-15 AMS Desktop: Added support for error message "code 500 (Internal Server Error)"
+	-15 AMS Desktop: Upgraded Flurl to latest version 2.8.2
+
+3.3.7 (January 21, 2020)
+	-1  Licensing: Fixed error "Length of the data to decrypt is invalid" (PSU Goa)
+	-2  Upgraded to TLibs 3.3.7.3
+	-3  NEW FEATURE: Added support for Smartcard ID integration (NVSU Bayombong)
+	    When employee taps his ID card to the biometric kiosk, the system
+	    will prompt the employee to press his/her finger to the reader
+	-4  IMPORTANT! Must upgrade database server to MariaDB 10.4.x or higher
+	-4  DATABASE: Upgrade ALL tables to Aria Engine
+	-5  Daily Time Record: Fixed remark displayed when Overtime is not a
+	    Regular Overtime (Demo at TAU Camiling, Tarlac)
+	-9  Websocket: Improved stability in intermittent internet connection
+	-10 Websocket: Exits program if cannot connect at startup
+	-11 Websocket: Reconnects when connection status is Disconnected
+	-11 Synchronized to TLibs 3.3.7.11
+	-12 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-12 AMS Online: Edit wwwroot/ams/web.config, set targetFramework="4.7.2" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.7.2" />
+	        <httpRuntime targetFramework="4.7.2" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-14 WebAms Client: To force the program to run in lower version .NET Framework 4.5,
+	    edit WebAms.exe.config, change supportedRuntime sku="xxx" from 4.7.2 to 4.5:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	-15 WebAms Client: Allows Visitor card types to attach with account
+	-19 Synchronized to TLibs 3.3.7.19
+	-19 WebAms Client: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-25 WebAms Client: Improved forwarding of OFFLINE time IN/OUT to server (NVSU Bayombong)
+	-28 IMPORTANT! This release now requires .NET Framework version 4.8
+	-28 AMS Server: Edit wwwroot/ams/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-28 User Access/Menu: Increased capacity to 255 chars
+
+3.3.6 (May 26, 2019)
+	-1  AMS Online/Installation:
+	    1.1 Create folders "C:\temp" (with read/execute security on Everyone)
+	    1.2 Create folders "C:\ams" (with read/execute security on Everyone)
+	    1.3 Create folders "docs", "pics" and "files" under "C:\ams" folder
+	    1.4 Create "wwwroot\dstc" folder
+	    1.5 Create virtual directory "dstc/ams" pointed to "C:\ams" folder
+	    1.6 Copy shared javascript files (ExcelJs, FileSaver, PdfMake, QooxDoo, Vfs_Fonts)
+		to "wwwroot\dstc\scripts" folder
+	    1.7 Extract qooxdoo5.0-resource.rar to "wwwroot\dstc" folder 
+	        (The extraction will create "wwwroot\dstc\resource" folder)
+	    1.8 Extract AmsOnline3.x-net45.rar to "wwwroot\ams" folder
+
+	-2  Removed automatic scaling of pictures at startup of WebAms.exe (NVSU Bayombong)
+	-3  Random Filename: Decreased probability of duplicate 51^18
+	-3  Removed compatibility table "ams_files.idsfx" (must run latest SFX if very old
+	    version cannot download upgrade)
+	-4  Restored previous server hub name for backward compatibility
+	-5  Collapsable: Fixed enable/disable controls
+	-5  Upgrade: Automatically upgrade all "ams" and "ams_xxxx" databases
+	-6  GET_LOCK: Ensured lock is released on exception
+	-7  Server Startup: Now checks for required upgrade version
+	-7  License: New license key stored in database
+	-7  Websocket: Fixed downloading of custom reports (SJCBI Baggao)
+	-8  TDotNet: Fixed error "Function TTDotNet3367 not found"
+	-8  Fixed compatibility with old versions which use "webamsserver"
+	-9  Fixed unable to automatically upgrade (SPUP Tuguegarao City)
+
+3.3.5  (May 7, 2019)
+	-15  Synchronized with Source Library 3.3.5.15
+	-15  Daily Time Record: Added option to Enable/Diable computation of Absences (NVSU Bayombong)
+	-16  Daily Time Record: Added option to Enable/Diable computation of Late / Undertime (NVSU Bayombong)
+	-17  Setup: Removed field "backuptime"
+	-18  Websocket Connector: Updated to latest real-time library version 2.2.0
+	-19  Websocket Connector: Fixed error "OLE IDispatch... index must be 0 or non-negative"
+	-19 Websocket Connector: Added message "Connecting to...<server>" (SJCBI Baggao)
+
+3.3.4  (March 16, 2019)
+	-1  Synchronized with Source Library 3.3.4.1
+	-1  Daily Time Record: Added columns for OT (In) and OT (Out) (NVSU Bayombong)
+	-1  Daily Time Record: Shows under Remark the leave credit availed by employee (NVSU Bayombong)
+	-1  Daily Time Record: Created DTR report which include OT (In) and OT (Out) (NVSU Bayombong)
+	-1  Leave: Added entry for Monthly Debit (NVSU Bayombong)
+	-1  Classifications: Added entry for Auto Debit Sick Leave (NVSU Bayombong)
+	-1  Classifications: Added entry for Auto Debit Vacation Leave (NVSU Bayombong)
+	-1  NEW REPORT: Daily Time Record with Overtime columns (NVSU Bayombong)
+	-2  Attendance Summary: Added option to "Include Empty Attendance" (NVSU Bayombong)
+	-13 Synchromized with Source Library 3.3.4.13
+	-14 Overtime: Added entry for required overtime Minimum Per Day (NVSU Bayombong)
+	-14 Overtime Authorization: Change entry of date to a Date Range (NVSU Bayombong)
+	-14 Daily Time Record: Retrieval/display of Official Time in DTR (NVSU Bayombong)
+	-14 NEW MODULE: Entry of Beginning balance of leave (NVSU Bayombong)
+	-14 Daily Time Record: Added summary of leave inclusive dates and number of days (NVSU Bayombong)
+	-15 Daily Time Record: Consolidates same days schedule (NVSU Bayombong)
+	-26 Synchromized with Source Library 3.3.4.26
+	-26 LicenseOnline: Increased capacity of school name and address to encrypted 152 chars (SJCBI Baggao)
+
+3.2.8  (July 31, 2017)
+	-1  Daily Time Record: Removed extra blank lines after 31st line (LNU Tacloban)
+
+3.2.6  (March 23, 2017)
+	-1  Upgraded "att" table to support OFF-LINE mode (LNU Tacloban)
+	-2  Daily Time Record: Upgraded to support upgraded "att" table (LNU Tacloban)
+	-3  Daily Time Record: Display lines in DTR printout (LNU Tacloban)
+	-4  Daily Time Record: Now supports computation of Weekly Flexi hours (WPU Palawan)
+	-5  Daily Time Record: Added display of Present hours for Flexi hours (WPU Palawan)
+	-6  Daily Time Record: Fixed error "...TimeIn" when there is Overtime authorization (WPU Palawan)
+	-6  Daily Time Record: Fixed display/printing of time-out when only 1 is detected (WPU Palawan)
+	-7  Daily Time Record: Automatically removes duplicate logs (CSU Carig)
+	-7  Attendance Summary: No longer prints those with no attendance (CSU Carig)
+	-8  Attendance Summary: Fixed error "Invalid subscript in array laOt..." (LCC Iriga City)
+		
+3.2.5  (December 24, 2016)
+	-1  Converted all "sub" to unsigned integer
+	-2  Improved saving and retrieval of pictures of employees
+	-2  Accounts: Added index "Pin" to speed up searching of PIN
+	-2  Setup: Added column "version" for automatic updating of clients
+	-3  Connection: Added table "Connections" to persist websocket connections
+	-18 Synchronized version with AMS Online
+	-18 Employees: Increased capacity of Code to 20 chars (TUP Taguig)
+	-19 Classifications: Added option to hide time log of late under grace period in DTR (CSU Carig)
+
+3.2.4  (September 25, 2016)
+	-7  Synchronized version with Online Payroll 3.2.4.7
+	-7  Accounts: Increased code size to 15 chars (TUP Taguig)
+
+3.2.3  (May 4, 2016)
+	-1  ODBC Connector:  Upgrade to the latest MySQL ODBC 5.3 Driver
+	-2  ODBC Connector:  Reverts back to MySQL ODBC 3.51 driver if 5.3 driver failed to install
+	-3  Individual Ledger: Fixed conversion of date/time minutes i.e. 9:05 stored as 9:04 (SPUP Tuguegarao)
+	-4  Daily Time Record: Added option to display Late and Undertime in minutes (SPUP Tuguegarao)
+	-5  Daily Time Record: Added column to display Present in hours (NC Santiago)
+	-5  Attendance Summary: Added column to display Present in hours (NC Santiago)
+	-6  Daily Time Record: Fixed refresh of attendance related data
+	-6  Export to MS Excel: Restored support for exporting to Microsoft Excel 5.0 (.xls)
+	-7  Daily Time Record: Fixed conversion of late minutes to absent i.e. 60 mins late = 0.5 days absent (SPUP Tuguegarao)
+	-8  NEW REPORT: Attendance Details - to generate detailed attendance details of employees (SPUP Tuguegarao)
+	-9  Classifications: Added option to round late minutes to 1 hour i.e. 30 mins late = 1 hour late (SPUP Tuguegarao)
+	-10 Added auto increment ID in attendance table for faster retrieval of latest log in of employee (SPUP Tuguegarao)
+	-11 Attendance Details: Fixed error "Field name does not accept NULL value"
+	-12 ODBC Connector: Reverts back to MySQL ODBC 3.51 due to problem in rounding of decimals
+	-13 ODBC Connector: Installs MySQL ODBC 3.51 if not currently installed (NSU Naval)
+
+3.2.2  (March 15, 2016)
+	-1  AMS DTR Upgrade
+	-2  Added support for manual mode in time-in and time-out
+	-3  Upgraded support for exporting to/importing from MS Excel 2013
+	-4  Changes to account and templates now use only "UpdSub" and "UpdTemplates" (SPUP Tuguegarao City)
+	-5  Adjusted (mostly increased) the date range restrictions
+	-6  Attendance Summary: Automatically resets the record pointer to first record
+	-7  Accounts: The PIN is now system generated by clicking "Generate" button (SPUP Tuguegarao City)
+
+3.1.1  (January 31, 2016)
+	-1  Classifications: Added option to specify "Any time-in for the day is enough" (NC Santiago City)
+	-2  Attendance Summary: Fixed error "Property CTYPE not found" (NC Santiago City)
+
+2.7.3  (January 26, 2016)
+	-1  Classifications: Added option to configure maximum overtime hours per day (JBLCF Bacolod)
+	-2  User Levels: Added fields SkipList, Menu, Priv for compatibility with latest Source library
+	-3  Rest Days: Fixed adding of rest days by classification (JBLCF Bacolod)
+	-4  Fixed error "Must specify additional parameters" (SPUP Tuguegarao)
+
+2.7.2  (July 26, 2014)
+	-1  Source: Added backtick to cntSelect and cusTable field names
+	-2  Attendance Summary: Add option to filter by Classification or Deparment (CBSUA)
+	-3  Attendance Summary: Separate columns for Frequencies on Late and Undertime (JBLCF)
+	-4  Classifications: Added option to penalize employees for missing IN or OUT with absences in hours (JBLCF)
+	-5  Daily Time Record: Now crosschecks actual attendance against authorized overtime (JBLCF)
+	-6  Daily Time Record: Fixed distribution of leave to span a few days (JBLCF)
+	-7  Daily Time Record: Fixed negative undertime value (JBLCF)
+	-8  Regular Schedule: Added option to specify Flexi time in hours (BISCAST)
+
+2.7.1  (November 22, 2012)
+	-1  Daily Time Record: Fixed bug where Official Business is not recognized sometimes
+	-2  Security: Improved encryption algorithm (EncryptEx)
+	-3  Daily Time Record: Fixed error when employee is selected while date range is empty
+	-4  Daily Time Record: Fixed computation of Late/Undertime under Official Business
+	-4  Official Business: Now checks if Start Date is too early (1 year below current date)
+	-5  Classifications: Added entry for Grace Period exception (example: M 7am)
+	-6  Individual Ledger: Removed checking of datetime in/out
+
+2.6.9  (July 26, 2012)
+	-1  Security: Upgraded encryption using AES-256
+	-2  Encryption: Now tests if the encryption library is 100% working
+	-3  Daily Time Record: Added option to print DTR form
+	-4  Daily Time Record: Fixed computation of overtime hours
+	-5  Daily Time Record: Now recognizes Timein and Timeout entered in Official Business
+	-6  Classifications: Added "No ELC" option
+	-7  Upgrade Module: Now checked at the start of execution
+	-8  ams_files: Changed field types (id UInt, filename V(250), data Mediumblob)
+	-9  Daily Time Record: Fixed display/printout of single timein and timeout per day
+	-10 Adjustment: Added entry for date when the subject for adjustment is "incurred"
+	-11 Daily Time Record: Printout for "Complete" option how uses 8.5 x 13 Inches paper size
+	-12 Daily Time Record: Fixed retrieval of days in Leave Credits when value is not 1.0
+	-13 Attendance Summary: Added column "Adjustments" to display adjustment summary
+	-14 Accounts: Added "Process" option to process employee in Attendance Summary
+	-15 Daily Time Record: Fixed computation of Late, Undertime and Absences for night shift schedule
+	-16 Leave Credits: Now accepts Days in 3 decimal values (9,999.999)
+	-17 Attendance Summary: Added feature to export Absences, Late and Undertime to Payroll database
+	-18 Daily Time Record: Improved detection of schedule for mixed/unordered entries
+	-19 Individual Ledger: Allows entry only if the date is less or equal to server date
+	-20 All dates (datetime) entered in the system are now checked for validity
+	-21 Tools-Options: Added entry for default regular work hours per day
+	-22 Daily Time Record: Fixed error "Numeric overflow" when Regular Work Hours is zero (0)
+	-23 Daily Time Record: Added totals for no. of times Late and Undertime incurred
+	-24 Attendance Summary: Improved speed in computing summary for all employees
+	-25 Reports: Fixed detection of current printer settings
+	-26 Picture/Files: Automatically detects and downloads newly updated pictures/files
+
+2.6.8  (November 15, 2011)
+	-1  NEW REPORT: Daily Time Record with analysis of absences, late and undertime
+	-2  Classifications: Added option to specify minimum/maximum hours per day
+	-3  Classifications: Added option to specify grace period for late and undertime
+	-4  Daily Time Record: Fixed detection of maximum attendance per day
+	-5  Classifications: Added option to specify grace period for late - absent
+	-6  Overtime: Added option to specify Maximum hours per day, applicable time
+	-7  Daily Time Record: Now supports grace period for late
+	-8  Daily Time Record: Added option for Semi-monthly periods
+	-9  Encryption: Updated encrypted data using new encryption algorithm
+	-10 Overtime: Added 'No' entry to specify column order in reports
+	-10 Leaves: Added 'No' entry to specify column order in reports
+	-11 Holidays: Added 'Type' entry to specify if date is Legal or Special holiday
+	-12 NEW REPORT: Basic printout of Daily Time Record
+	-12 NEW REPORT: Complete printout of Daily Time Record
+	-12 Tools-Save As: Added export capabilities to CSV and MS Excel formats
+	-13 Password: Updated using SHA256 hashing algorithm
+	-14 Encrypton libraries is now checked for authenticity (recreated if necessary)
+	-15 Automatic detection of overtime done on all types of holidays
+	-15 Automatic computation of overtime in excess of 8 hours
+	-15 Automatic computation of Earned Leave Credits (ELC) from regular overtime
+	-16 Encryption library is now built-in and secure from corruption
+	-17 Classifications: Added option to select the overtime option
+	-18 Official Business: Added entry for Time In and Time Out
+	-18 NEW MODULE: Entry for Adjustments at Transactions
+	-19 Classifications: Added option to round late to the nearest quarter (15, 30, 45, 60)
+	-20 Attendance Summary: Added option to print DTR for current/all records
+
+2.6.7  (June 28, 2011)
+	-1  Updated support library to source2.6.73
+	-1  Added licensekey detection
+	-2  Updated main menu
+	-3  Attendance Summary: Fixed error displayed when an employee record is deleted
+	
+2.6.6  (September 26, 2010)
+	-1  Regular Schedule: Added option to add schedule to all employees in a classification
+	-2  Individual Ledger: Fixed bug variable "DateIn" does not exist
+	-3  Attendance Summary: Columns for Required and Attended now in time span format
+
+2.6.5  (August 13, 2010)
+	-1  NEW REPORT: Attendance Summary report
+	-2  Attendance Summary Report: Added command to export to Payroll database
+	-3  NEW MODULES: Gate Pass, Leave Credits, Official Business, Overtime and Breaktime Schedules
+	-4  Removed fingerprint enrollment
+	-5  Modified some fields in Leaves and LeaveCredits
+	-6  Accounts: Added option to indicate that an account will be used to activate fingerprint enrollment
+	-7  Tools-Options: Added option to enable fingerprint enrollment of the administrator
+	-8  Accounts: Added option to indicate that an account will be used to shutdown the attendance monitor
+	
+2.6.4  (January 14, 2010)
+	-1  Monitoring form was set to alwaays on top
+	-2  Fixed focusing on attendance form when another application is activated
+	-3  An option in INI that disables database checking (put CheckDb=0 unde [Options])
+	-4  Fixed report "In-out listing" where time out value is the same as time in
+	
+2.6.3  (July 30, 2010)
+	-1  Added option to run the system in 2 modes: Admin and In/Out
+	    Edit ams.ini and set Admin=1 or 0 under [Options]
+	-2  Updated encryption policy in connecting to database server
+	-3  Fixed Bug: Variable "goRaw" not found error
+	-4  NEW FEATURE: Login/logout using PIN instead of fingerprint
+	-5  Removed fingerprint enrollment
+	
+2.6.2 (September 2, 2008)
+	-1  In/Out Screen: Major screen modification to display only one (latest) personal data and picture
+	-2  Groups: Added entry for Irregular schedule
+	-3  In/Out Screen: Automatically checks-in if there is no record yet for the day
+
+2.6.1 (July 25, 2008)
+	-1  Usage Monitor: Added option to logout individual or all students in the monitor
+	-2  In/Out Screen: Modified screen to use 1024 x 768 screen resolution
+	-3  In/Out Screen: Fixed overlapped location of remark beside ID number
+	-4  In/Out Screen: Fixed display of some controls

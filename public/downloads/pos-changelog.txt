@@ -1,0 +1,219 @@
+3.6.3.1 (March 1, 2025)
+	-1  Synchronized with TLibs 3.6.3.1
+
+3.5.11.5 (November 10, 2024)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+
+3.5.10.24 (October 30, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 SIAS Online/PDF Generator: Upgraded to pdfmake v0.2.14
+	-24 QueryScalar: Changed to postJsonEx
+
+3.5.7.19 (July 28, 2024)
+	-19 Synchronized with Source Library 3.5.7.19
+
+3.5.4.14 (April 27, 2024)
+	-14 Synchronized with Source Library 3.5.4.14
+
+3.5.2.7 (February 7, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+
+3.4.10.2 (October 5, 2023)
+	-2  WebPos: Fixed retrieval of student Photo
+	-2  Removed SubJoin and SubPhoto variables
+
+3.4.9.12 (September 19, 2023)
+	-2  Synchronized with TLibs 3.4.9.2
+	-5  Tools-Options: Added checkbox "Temporarily Limit Search to 1000 records"
+	    (SPUP Tuguegarao City)
+	    -- automatically reverts to 35 records after, must re-check to activate again
+	-12  Changed retrieval of photos from "otrphoto" to "subphoto"
+
+3.4.8.19 (August 28, 2023)
+	-5  Synchronized with TLibs 3.4.8.5
+	-12 Sales Report: Added filter for Sales No. (SPUP Tuguegarao City)
+	    --- the Date range is optional when Sales No. is inputted
+	-12 eWallet Transactions: Added filter for Sales No. (SPUP Tuguegarao City)
+	    --- the Date range is optional when Sales No. is inputted
+	-12 Stock In/Out: Fixed display in mobile devices (SPUP Tuguegarao City)
+	-13 Sales Report: Date range is always respected (SPUP Tuguegarao City)
+	-13 eWallet Transactions: Date range is always respected (SPUP Tuguegarao City)
+	-16 Users: Changed field types of Code and Name from CHAR to VARCHAR 
+	-19 eWallet Transactions: Added support for Express Payments (SPUP Tuguegarao City)
+
+3.4.4.7 (April 22, 2023)
+	-4  Synchronized with TLibs 3.4.4.4
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.4.3.2 (March 5, 2023)
+	-1  Synchronized with TLibs 3.4.3.2
+
+3.3.22.3 (December 3, 2022)
+	-1  Synchronized with TLibs 3.3.22.3
+
+3.3.12.2 (May 25, 2021)
+	-1  Synchronized with TLibs 3.3.12.2
+	-2  Tools-Options: Added entry for "Logo" click to upload the main Logo
+
+3.3.11.86 (April 24, 2021)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-57 Synchronized with TLibs 3.3.11.57
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries for Mobile
+	-61 Others: Fixed display of Other forms for Mobile
+	-86 Synchronized with TLibs 3.3.11.86
+
+3.3.10.83 (October 19, 2020)
+	-22  Synchronized with TLibs 3.3.10.22
+	-22  Added responsive UI for Mobile Phones
+	-83  Synchronized with TLibs 3.3.10.83
+	-83  Increased License capacity to 172 chars
+	-83  Fixed error "Unable to read data from the transport connection : An existing connection
+	     was forcibly closed by the remote host" by setting SecurityProtocol to TLS 1.x
+
+3.3.8 (April 10, 2020)
+	-1  PDF Reports: Added options for Maximum Title Height and Maximum Row Height
+	-2  PDF Reports: Added entry for Top heading, Signature headings and Widths
+	-3  Stock Adjustment: Fixed error "No default value for column 'Particular'" 
+	    (SPUP Tuguegarao city)
+	-5  Stock In: Added button "New #" to automatically generate new transaction no. 
+	    (SPUP Tuguegarao city)
+	-6  Stock Out: Added button "New #" to automatically generate new transaction no. 
+	    (SPUP Tuguegarao city)
+	-7  Stock Adjustment: Added button "New #" to automatically generate new transaction 
+	    no. (SPUP Tuguegarao city)
+	-8  Sales: Hide "New #" button (SPUP Tuguegarao city)
+	-9  PDF Report: Now displayed within the application to avoid popup blocker
+	-10 PDF Report: Generates PDF report in the background to avoid freezing the UI
+	-11 PDF Report: Prevents reloading of PDF generator in background worker
+	-13 ALL Reports: Added progress report while processing
+  	-14 Upgraded SignalR to latest version 2.4.1
+	-15 Upgraded Flurl to latest version 2.8.2
+	-15 User Access Levels: Added button "Add Level" to add other same level 
+	    menus which is useful when enabling a newly added menu without disabling the 
+	    other same level menus
+
+3.3.7 (February 13, 2020)
+	-1  Licensing: Fixed error "Length of the data to decrypt is invalid"
+	-3  Upgraded to TLibs 3.3.7.4
+	-4  IMPORTANT! Must upgrade database server to MariaDB 10.4.x or higher
+	-4  DATABASE: Upgrade ALL tables to Aria Engine
+	-11 Synchronized to TLibs 3.3.7.11
+	-12 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-12 POS Online: Edit wwwroot/pos/web.config, set targetFramework="4.7.2" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.7.2" />
+	        <httpRuntime targetFramework="4.7.2" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-14 WebPos: To force the program to run in lower version .NET Framework 4.5,
+	    edit WebPos.exe.config, change supportedRuntime sku="xxx" from 4.7.2 to 4.5:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	-19 Syncrhonized to TLibs 3.3.7.19
+	-19 WebPos: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-28 IMPORTANT! This release now requires .NET Framework version 4.8
+	-28 POS Online: Edit wwwroot/pos/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-29 EntryTran: Programmatically define station field for Transaction no.
+
+3.3.6 (June 17, 2019)
+	-1  POS Online/Installation:
+	    1.1 Create folders "C:\temp" (with read/execute security on Everyone)
+	    1.2 Create folders "C:\pos" (with read/execute security on Everyone)
+	    1.3 Create folders "docs", "pics" and "files" under "C:\pos" folder
+	    1.4 Create "wwwroot\dstc" folder
+	    1.5 Create virtual directory "dstc/pos" pointed to "C:\pos" folder
+	    1.6 Copy shared javascript files (ExcelJs, FileSaver, PdfMake, QooxDoo, Vfs_Fonts)
+		to "wwwroot\dstc\scripts" folder
+	    1.7 Extract qooxdoo5.0-resource.rar to "wwwroot\dstc" folder 
+	        (The extraction will create "wwwroot\dstc\resource" folder)
+	    1.8 Extract posOnline3.x-net45.rar to "wwwroot\pos" folder
+
+	-3  Random Filename: Decreased probability of duplicate at 51^18
+	-5  Collapsable: Fixed enable/disable controls
+	-5  Upgrade: Automatically upgrade all "pos" and "pos_xxxx" databases
+	-6  GET_LOCK: Ensured lock is released on exception
+	-7  License: New license key stored in database
+	-8  Stock Report: Fixed error "Dictionary key not found" (SPUP Tuguegarao City)
+	-9  Fixed unable to automatically upgrade (SPUP Tuguegarao City)
+	-10 Automatic detection of database name based on ApplicationVirtualPath
+	    i.e. "wwwroot\sjcbi\pos" returns "pos_sjcbi" database, 
+	    "wwwroot\cgy\sjcbi\pos" returns "pos_cgy_sjcbi" database		
+	-11 Stock Report: Added entry for Beginning date (SPUP Tuguegarao City)
+
+3.3.5  (April 18, 2019)
+	-13 Synchronized with TLibs 3.3.5.13
+	-13 Dialogs: Automatically set focus to first entry control
+	-14 Sales: Enables entry of Tran No only if Station is not empty (SPUP Tuguegarao City)
+	-14 eWallet Transactions Report: Added column Station, changed Tran ID to Sales No 
+	    (SPUP Tuguegarao City)
+	-14 eWallet Ledger: Added column Station, changed Tran ID to Sales No 
+	    (SPUP Tuguegarao City)
+	-16 Login: Fixed display of user names with Ñ
+	-17 Navigation/Report/Other Forms: Automatically set focus to first entry control
+
+3.3.4 (March 12, 2019)
+	-1  Synchronized Upgrade to TLibs 3.3.4.1
+	-5  Synchronized Upgrade to TLibs 3.3.4.5
+	-6  Fixed unable to save data of controls using IdName
+	-7  Items: Fixed unable to save if Prepare Time is zero (SPUP Tuguegarao)
+	-13 Firefox v65: Fixed shortcut keys like F2, F4, F9 and Arrow Keys in table 
+	    no longer working due to Firefox v65 update
+	-14 Fixed reloading UI framework when version is changed
+	-14 Sales Report: Enabled Station search box for Tellers (SPUP Tuguegarao)
+	-15 Updated PDF generator (PDFMake) to latest version 0.1.53
+	-15 Updated FileSaver.js to latest version 2.0.1
+	-23 List Prices: Added entry for Cost, displays Markup % (SPUP Tuguegarao)
+	-23 Sales Report: Improved efficiency (SPUP Tuguegarao)
+	-23 NEW REPORT: Sales Summary Report (SPUP Tuguegarao)
+
+3.3.3 (November 18, 2018)
+	-13 Synchronized Upgrade to TLibs 3.3.3.13
+	-14 SECURITY FEATURE: Applied obfuscation to javascript files
+	-14 SECURITY/Login: Added option to mouse over the chars in the password
+	-14 SECURITY/Authentication: Added salt to authentication parameter
+	-14 SECURITY: Disabled Query Stacking to prevent SQL Injection
+	-14 SECURITY: Encrypted SELECT statements to prevent SQL Injection
+
+3.3.2 (August 23, 2018)
+	-17 Synchronized Upgrade to TLibs 3.3.2.17
+	-17 Upgrade to PDFMake 0.1.37
+	-17 Login: Fixed TAB key not functioning in Firefox browser
+	-17 Modal Dialogs: Fixed ENTER and ESCAPE keys not functioning in Firefox browser
+	-17 Search Window: Added shortcut key DOWN to go to list and ENTER to accept selection
+
+3.3.1 (July 11, 2018)
+    	-7  NEW FEATURE: The client browser can now save all reports as Excel (.xlsx)
+    	-12 Fixed generation of PDF and XLS when date range is empty (SSC Sorsogon)
+    	-18 User Access Level: Increased capacity of Menu Access
+
+3.2.9 (February 20, 2018)
+    	-8  Improved efficiency of smartcard reader connection pooling
+    	-8  eWallet Transactions Report: Fixed display column of total sales (Dualtech Laguna)
+    	-9  NEW MODULE: Display of Services (Orders) Status window (Dualtech Laguna)
+    	-10 Enables the same PC to display both "pos" and "services" windows 
+        especially when using an extended screen (Dualtech Laguna)
+    	-13 Synchronized TLibs library version
+    	-13 Improved smartcard pooling efficiency
+    	-15 Fixed unable to sell item if last transaction total is greater than 
+	    ewallet balance of new customer (Dualtech Laguna)
+	-16 Upgraded .NET connector to version 6.9.10
+    	-16 Ability to Drag and Resize window when Maximize is false (Dualtech Laguna)
+    	-20 Added entry for Preparation Time per food item (Dualtech Laguna)
+    	-20 Services Window: Displays number of seconds left before "Ready" status (Dualtech Laguna)
+    	-23 NEW REPORT: Purchases Report (Dualtech Laguna)
+
+3.2.7 (April 13, 2017)
+    	-3  Displays transaction number in webPOS client (SPUP Tuguegarao)
+
+3.2.4 (March 17, 2017)
+    	-15 Can cancel an item by clicking it (SPUP Tuguegarao)
+    	-16 Search Window: Use Up and Down arrow keys to scan items in list (SPUP Tuguegarao)

@@ -1,0 +1,263 @@
+3.6.2.17 (February 21, 2025)
+	-17 Synchronized with TLibs 3.6.2.17
+	-17 NEW MODULE: Entry of "Enrolled Period" at Transactions (ISU Cauayan City)
+
+3.5.11.12 (November 19, 2024)
+	-2  Synchronized with TLibs 3.5.11.2
+	-2  Import Titles: Added fields Type Of Record, Form of Item, Nature of Content 1,
+	    Nature of Content 2, Nature of Content 3, Classification, Language, 
+	    Author 1, ... Author 5 (UPHS JONELTA)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  NEW MODULE: Import Collections at Tools (UPHS JONELTA)
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+	-6  Import Collections: Fixed error "Unknown column 'code'..."
+	-12 Synchronized with TLibs 3.5.11.12
+	-12 Increased capacity of Accession No to 25 chars (UPHS JONELTA)
+	-12 PDF Generator: Upgraded to pdfmake v0.2.15
+
+3.5.10.24 (October 30, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 PDF Generator: Upgraded to pdfmake v0.2.14
+	-24 QueryScalar: Changed to postJsonEx
+
+3.5.9.3 (September 6, 2024)
+	-1  Fixed retrieval of the active Learning Period from SIAS by calling API 
+	    from URL defined for "SiasServerUrl" in web.config (LSA Iligan City)
+	-3  LisWebEMS: Fixed location of "Exit" when exit picture is increased
+	-3  LisWebEMS: Display updated Time regardless of the value of ToDisplayId
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+
+3.5.7.20 (July 28, 2024)
+	-19 Synchronized with Source Library 3.5.7.19
+	-20 Accounts In/Out: Selection of Account is optional (Lanao People's Library)
+	-20 Accounts In/Out: Added column "Name" 
+
+3.5.4.14 (May 16, 2024)
+	-14 Synchronized with Source Library 3.5.4.14
+	-14 List of Borrowed Books: Added column "Borrower"
+	-14 List of Overdue Books: Added column "Borrower"
+	-14 Book Ledger: Added column "Borrower"
+	-14 Patron Ledger: Added column "Title"
+	-14 Subjects: Increased column name to 70 chars
+
+3.5.3.7 (March 20, 2024)
+	-7  Synchronized with Source Library 3.5.3.7
+	-7  WebLis: Do not detect enrollment when Database is equal to SiasDb
+
+3.5.2.12 (February 20, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+	-8  Added support for Accounts "sub" inside the Library database when 
+	    Web.Config's Database is equal to SiasDb 
+	    Example: Database="lis" and SiasDb="lis"
+	-8  Added entry for Accounts under Files which is available only when
+	    Web.Config's Database is equal to SiasDb
+	-9  Titles: Added capability to paste Youtube Video Link or Upload Document (eBook)
+	-9  Search Collections: Added button "View" and column "Media" which displays the
+	    the type of Media (Youtube, PDF, Powerpoint, etc) attached to the title.
+	-10 NEW MODULE: Entry of Gates (Entry Points) under File
+	-10 NEW MODULE: Entry of Visitors under File
+	-11 NEW REPORT: Accounts (In/Out) Report under Reports
+	-11 NEW REPORT: Visitors (In/Out) Report under Reports
+	-12 NEW APP: LisIDWriter.exe for activation of Smartcard IDs
+	-12 NEW APP: LisWebEms.exe for monitoring Entry/Exit of Patron using Smartcard IDs	
+
+3.4.12.4 (December 17, 2023)
+	-4  Synchronized with TLibs 3.4.12.4
+	-4  Borrowing: Fix error "Data truncated for column 'accessno'" (ISU Cauayan City)
+	-4  Search Collection: Fix filter "Available" (ISU Cauayan City)
+
+3.4.11.8 (November 24, 2023)
+	-8  Synchronized with TLibs 3.4.11.8
+	-8  Titles: Increased capacity of "Code" to 25 chars (ISU Cauayan City)
+	-8  Titles: Added checkbox "ISSN" (ISU Cauayan City)
+	-8  Titles: Added Nature of Content selection "Feasibility Study" (ISU Cauayan City)
+
+3.4.10.8 (October 20, 2023)
+	-8  Synchronized with TLibs 3.4.10.8
+	-8  Charges/Pentalties: Allow empty date range which ignores the date range
+	-8  Collections: Accession No allows input of non-numeric characters (ISU Cauayan City)
+
+3.4.9.12 (September 19, 2023)
+	-12 Synchronized with TLibs 3.4.9.12
+	-12 Changed retrieval of photos from "otrphoto" to "subphoto"
+
+3.4.8.16 (August 24, 2023)
+	-16 Synchronized with TLibs 3.4.8.16
+	-16 Users: Changed field types of Code and Name from CHAR to VARCHAR 
+
+3.4.6.6 (June 18, 2023)
+	-6  Synchronized with TLibs 3.4.6.6
+
+	---!!! UPGRADE NOTE !!!---
+	     Edit "index.html" and insert before the </script> line as shown below:
+     	     <script>
+	     var reload3462 = true;  //Previously reload3422
+	     .....
+	     var e = v.split(",");
+	     loadScript("scripts/app.min.js?version=" + e[0]);
+
+	-6  list of Collections: Allows blank date range which will display all collections 
+	    regardless of date purchased (ISU Cauayan City)
+
+3.4.4.7 (April 22, 2023)
+	-4  Synchronized with TLibs 3.4.4.4
+	-5  Reports: Fixed spacing of top entries and buttons
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.4.3.2 (March 5, 2023)
+	-1  Synchronized with TLibs 3.4.3.2
+
+3.3.22.4 (November 11, 2022)
+	-3  Synchronized with TLibs 3.3.22.3
+	-4  Collections: Added entry for Branch (NONESCOST Sagay City)
+	-4  Search Collections: Added selection for Branch (NONESCOST Sagay City)
+
+3.3.15.12 (February 7, 2022)
+	-12 Synchronized with TLibs 3.3.15.12
+
+3.3.12.68 (November 14, 2021)
+	-1  Synchronized with TLibs 3.3.12.2
+	-2  Tools-Options: Added entry for "Logo" click to upload the main Logo
+	-68 Synchronized with TLibs 3.3.12.68
+	-68 Search Collections: Fixed search (UCC La Union)
+
+3.3.11.86 (April 24, 2021)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-57 Synchronized with TLibs 3.3.11.57
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries
+	-61 Others: Fixed display of Other forms for Mobile
+	-86 Synchronized with TLibs 3.3.11.86
+
+3.3.10.83 (October 19, 2020)
+	-22  Synchronized with TLibs 3.3.10.22
+	-22  Added responsive UI for Mobile Phones
+	-83  Synchronized with TLibs 3.3.10.83
+	-83  Increased License capacity to 172 chars
+	-83  Fixed error "Unable to read data from the transport connection : An existing connection
+	     was forcibly closed by the remote host" by setting SecurityProtocol to TLS 1.x
+
+3.3.8 (April 10, 2020)
+	-1  PDF Reports: Added options for Maximum Title Height and Maximum Row Height
+	-2  PDF Reports: Added entry for Top heading, Signature headings and Widths
+	-3  Fixed unable to show Login (DWCSJ San Jose)
+	-9  PDF Report: Now displayed within the application to avoid popup blocker
+	-10 PDF Report: Generates PDF report in the background to avoid freezing the UI
+	-11 PDF Report: Prevents reloading of PDF generator in background worker
+	-13 ALL Reports: Added progress report while processing
+  	-14 Upgraded SignalR to latest version 2.4.1
+	-15 Upgraded Flurl to latest version 2.8.2
+	-15 User Access Levels: Added button "Add Level" to add other same level 
+	    menus which is useful when enabling a newly added menu without disabling the 
+	    other same level menus
+
+3.3.7 (January 21, 2020)
+	-1  Licensing: Fixed error "Length of the data to decrypt is invalid"
+	-3  Upgraded to TLibs 3.3.7.4
+	-4  IMPORTANT! Must upgrade database server to MariaDB 10.4.x or higher
+	-4  DATABASE: Upgrade ALL tables to Aria Engine
+	-11 Synchronized to TLibs 3.3.7.11
+	-12 IMPORTANT! This release now requires .NET Framework version 4.7.2
+	-12 LIS Online: Edit wwwroot/lis/web.config, set targetFramework="4.7.2" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.7.2" />
+	        <httpRuntime targetFramework="4.7.2" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+	-14 WebLis: To force the program to run in lower version .NET Framework 4.5,
+	    edit WebLis.exe.config, change supportedRuntime sku="xxx" from 4.7.2 to 4.5:
+	    <startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	-19 Syncrhonized to TLibs 3.3.7.19
+	-19 WebLis: Compiled SFX to .NET 45 for compatibility (SPUP Tuguegarao City)
+	-24 Search Collections: Added column "Call No" (ULS Santiago City)
+	-25 NEW REPORT/Attendance Summary: Added report on attendance summary by course (DWSJ San Jose)
+	-28 IMPORTANT! This release now requires .NET Framework version 4.8 at server
+	-28 LIS Online: Edit wwwroot/lis/web.config, set targetFramework="4.8" 
+	    <system.web>
+	        <compilation debug="true" targetFramework="4.8" />
+	        <httpRuntime targetFramework="4.8" maxRequestLength="2147483647" executionTimeout="600" />
+	    </system.web>
+
+3.3.6 (May 25, 2019)
+	-1  LIS Online/Installation:
+	    1.1 Create folders "C:\temp" (with read/execute security on Everyone)
+	    1.2 Create folders "C:\lis" (with read/execute security on Everyone)
+	    1.3 Create folders "docs", "pics" and "files" under "C:\lis" folder
+	    1.4 Create "wwwroot\dstc" folder
+	    1.5 Create virtual directory "dstc/lis" pointed to "C:\lis" folder
+	    1.6 Copy shared javascript files (ExcelJs, FileSaver, PdfMake, QooxDoo, Vfs_Fonts)
+		to "wwwroot\dstc\scripts" folder
+	    1.7 Extract qooxdoo5.0-resource.rar to "wwwroot\dstc" folder 
+	        (The extraction will create "wwwroot\dstc\resource" folder)
+	    1.8 Extract lisOnline3.x-net45.rar to "wwwroot\lis" folder
+
+	-3  Random Filename: Decreased probability of duplicate at 51^18
+	-5  Collapsable: Fixed enable/disable controls
+	-5  Upgrade: Automatically upgrade all "lis" and "lis_xxxx" databases
+	-6  GET_LOCK: Ensured lock is released on exception
+	-7  License: New license key stored in database
+	-9  Fixed unable to automatically upgrade (SPUP Tuguegarao City)
+
+3.3.5  (April 18, 2019)
+	-13 Synchronized with TLibs 3.3.5.13
+	-13 Dialogs: Automatically set focus to first entry control
+	-16 Login: Fixed display of user names with Ñ
+	-17 Navigation/Report/Other Forms: Automatically set focus to first entry control
+
+3.3.4 (March 23, 2019)
+	-1  Synchronized Upgrade to TLibs 3.3.4.1
+	-5  Synchronized Upgrade to TLibs 3.3.4.5
+	-6  Fixed unable to save data of controls using IdName
+	-13 Firefox v65: Fixed shortcut keys like F2, F4, F9 and Arrow Keys in table 
+	    no longer working due to Firefox v65 update
+	-14 Fixed reloading UI framework when version is changed
+	-15 Updated PDF generator (PDFMake) to latest version 0.1.53
+	-15 Updated FileSaver.js to latest version 2.0.1
+	-27 Synchronized Upgrade to TLibs 3.3.4.27
+	-27 Search Collections: Fixed bug "Data is Null..." (DWC San Jose)
+	-27 Search Collections: Added option to press Enter or Tab
+	    to proceed with the search (DWC San Jose) 
+
+3.3.3 (November 27, 2018)
+	-13 Synchronized Upgrade to TLibs 3.3.3.13
+	-13 Fingerprint usage option is disabled by default (ASIST Bangued)
+	-14 SECURITY FEATURE: Applied obfuscation to javascript files
+	-14 SECURITY/Login: Added option to mouse over the chars in the password
+	-14 SECURITY/Authentication: Added salt to authentication parameter
+	-14 SECURITY: Disabled Query Stacking to prevent SQL Injection
+	-14 SECURITY: Encrypted SELECT statements to prevent SQL Injection
+	-15 Tools-Import Items: Fixed error "Index out of bounds" (ASIST Bangued)
+	-15 Tools-Import Titles: Added more fields that can be imported (ASIST Bangued)
+	-15 Change Password: Fixed error "=NULL WHERE id=?" (ASIST Bangued)
+
+3.3.2 (August 23, 2018)
+	-17 Synchronized Upgrade to TLibs 3.3.2.17
+	-17 Upgrade to PDFMake 0.1.37
+	-17 Login: Fixed TAB key not functioning in Firefox browser
+	-17 Modal Dialogs: Fixed ENTER and ESCAPE keys not functioning in Firefox browser
+	-17 Search Window: Added shortcut key DOWN to go to list and ENTER to accept selection
+
+3.3.1 (July 11, 2018)
+    	-7  NEW FEATURE: The client browser can now save all reports as Excel (.xlsx)
+    	-12 Fixed generation of PDF and XLS when date range is empty
+    	-18 User Access Level: Increased capacity of Menu Access
+
+3.2.9 (February 10, 2018)
+	-13 Synchronized TLibs framework version
+	-13 Improved smartcard polling efficiency
+	-18 Users: Fixed error in deleting a user
+
+3.2.4 (March 17, 2017)
+	-15 Can cancel an item by clicking it (SPUP Tuguegarao)
+	-16 Search Window: Use Up and Down arrow keys to scan items in list (SPUP Tuguegarao)
+
+3.2.7.1 (April 13, 2017)
+	-3  Displays transaction number in webPOS client (SPUP Tuguegarao)

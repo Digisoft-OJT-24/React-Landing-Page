@@ -1,0 +1,120 @@
+3.6.2.23 (February 27, 2024)
+	-23 Synchronized with TLibs 3.6.2.23
+
+3.5.1.31 (January 31, 2024)
+	-31 Synchronized with TLibs 3.6.1.31
+
+3.5.11.5 (November 10, 2024)
+	-5  Synchronized with TLibs 3.5.11.5
+	-5  Tools-Options: Added entry for "Idle Timeout" in minutes
+
+3.5.10.23 (October 27, 2024)
+	-23 Synchronized with TLibs 3.5.10.23
+	-23 SIAS Online/PDF Generator: Upgraded to pdfmake v0.2.14
+
+3.5.8.30 (August 29, 2024)
+	-30 Synchronized with Source Library 3.5.8.30
+	-30 PDF Generator: Upgraded pdfmake0.2.12.min.js
+	-30 PDF Generator: Upgraded pdfmakeworker0.0.2.min.js
+
+3.5.7.19 (July 28, 2024)
+	-19 Synchronized with TLibs 3.5.7.19
+
+3.5.5.26 (May 24, 2024)
+	---!!! UPGRADE NOTES !!!--
+	Must delete "c:\asis\cache" folder
+
+	-26 Synchronized with TLibs 3.5.5.26
+	-26 SIAS Online/Stock In: Fixed entry of Date in Mobile devices
+	-26 SIAS Online/Stock Out: Fixed entry of Date in Mobile devices
+	-26 SIAS Online/Stock Adjustment: Fixed frozen entry of Date in Mobile devices
+	-26 SIAS Online/Letter Version: Added Letter Version for browser-side emergency updates
+
+3.5.4.13 (April 22, 2024)
+	-6  Synchronized with Source Library 3.5.4.6
+	-6  NEW REPORT: Accumulated Depreciation at Reports (UPHS DALTA)
+	-11 Stock In/Out/Adjustment: Fixed error "Unknown column 'doctype'..."
+    	-12 Stock In/Out/Adjustment: Fixed scroll display on Mobile browsers
+    	-13 Accumulated Depreciation: Added filter by Date Purchased, Office and Location (LSA Iligan City)
+
+3.5.2.7 (February 7, 2024)
+	-7  Synchronized with Source Library 3.5.2.7
+
+3.4.10.8 (October 26, 2023)
+	-8  Synchronized with TLibs 3.4.10.8
+	-8  Assets: Fixed error "Out of range value for column 'item'..." (ULS Santiago City)
+	-8  User Access Level: Added privilege "Save As Excel"
+	-8  Tools-Options: Added checkbox "Temporarily Limit Search to 1000 records"
+
+3.4.8.16 (August 24, 2023)
+	-16 Synchronized with TLibs 3.4.8.16
+	-16 Users: Changed field types of Code and Name from CHAR to VARCHAR 
+
+3.4.4.7 (April 22, 2023)
+	-4  Synchronized with TLibs 3.4.4.4
+	-4  Reports: Fixed spacing of top entries and buttons
+	-7  Connection Pool: Set pooling=false, created custom connection pool 
+	    using ConcurrentQueue
+
+3.4.3.2 (March 5, 2023)
+	-1  Synchronized with TLibs 3.4.3.2
+
+3.3.22.3 (December 6, 2022)
+	-1  Synchronized with TLibs 3.3.22.3
+
+3.3.12.2 (May 25, 2021)
+	-1  Synchronized with TLibs 3.3.12.2
+	-2  Tools-Options: Added entry for "Logo" click to upload the main Logo
+
+3.3.11.86 (April 23, 2021)
+	-30 Synchronized with TLibs 3.3.11.30
+	-30 No longer require wwwroot/appname/"LicenseKey.txt"
+	-30 Removed server-side locking timeout
+	-57 Synchronized with TLibs 3.3.11.57
+	-59 Added FULL support for Mobile phones
+	-60 Reports: Fixed display of Date Range entries for Mobile
+	-61 Others: Fixed display of Other forms for Mobile
+	-86 Synchronized with TLibs 3.3.11.86
+ 
+3.3.10.83 (October 19, 2020)
+	-22 Synchronized with TLibs 3.3.10.22
+	-22 Added responsive UI for Mobile Phones
+	-83 Synchronized with TLibs 3.3.10.83
+	-83 Increased License capacity to 172 chars
+	-83 Fixed error "Unable to read data from the transport connection : An existing connection
+	    was forcibly closed by the remote host" by setting SecurityProtocol to TLS 1.x
+
+3.3.8 (April 10, 2020)
+	-1  PDF Reports: Added options for Maximum Title Height and Maximum Row Height
+	-2  PDF Reports: Added entry for Top heading, Signature headings and Widths
+	-3  Asset:  Increased capacity of Description to 255 chars
+	-4  Property Ledger: Changed entry of Asset No from TextField to SearchBox
+	-5  Asset: Encoding of new asset activates Property ledger with Cost
+	-6  Stock In: Added button "New #" to automatically generate new transaction no.
+	-7  Stock Out: Added button "New #" to automatically generate new transaction no.
+	-8  Stock Adjustment: Added button "New #" to automatically generate new transaction no.
+	-9  PDF Report: Now displayed within the application to avoid popup blocker
+	-10 PDF Report: Generates PDF report in the background to avoid freezing the UI
+	-11 PDF Report: Prevents reloading of PDF generator in background worker
+	-13 ALL Reports: Added progress report while processing
+  	-14 Upgraded SignalR to latest version 2.4.1
+	-15 Upgraded Flurl to latest version 2.8.2
+	-15 User Access Levels: Added button "Add Level" to add other same level 
+	    menus which is useful when enabling a newly added menu without disabling the 
+	    other same level menus
+
+3.3.7 (February 14, 2020)
+	-28 Copied source project from POS Online version 3.3.7.28
+	-29 NEW MODULE/Departments: Added entry of departments at File
+	-29 NEW MODULE/Offices: Added entry of offices at File
+	-29 NEW MODULE/Locations: Added entry of locations at File
+	-29 NEW MODULE/Classifications: Added entry of classifications at File
+	-29 Classifications: Added entry of Type (Supplies, Depreciable, Non-depreciable)
+	-29 Classifications: Added entry of Life Span for Depreciable assets
+	-29 NEW MODULE/Items: Added entry of items at File
+	-29 Items: Added entry of Classification
+	-29 NEW MODULE/Assets: Added entry of assets at File
+	-29 NEW MODULE/Property Ledger: Entry of Property Ledger at Transactions
+	-30 NEW REPORT/Stock Inventory at Reports
+	-30 NEW REPORT/Property Ledger at Reports
+	-31 Classifications: Fixed optional entry for LifeSpan and No (SPUP Tuguegarao city)
