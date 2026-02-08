@@ -49,12 +49,19 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   }, [data, form]);
 
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: async ({ input, mutation }: { input: z.infer<typeof formSchema>; mutation: string }) =>
+    mutationFn: async ({ 
+      input, 
+      mutation, 
+      variables 
+    }: { 
+      input: z.infer<typeof formSchema>; 
+      mutation: string;
+      variables: Record<string, unknown>;
+    }) =>
       await request(
         import.meta.env.VITE_API_URL,
-        gql`
-          ${mutation}
-        `,
+        gql`${mutation}`,
+        variables
       ),
     onSuccess: () => {
       form.reset();
@@ -69,31 +76,55 @@ export default function ProductForm({ data, className }: ProductFormProps) {
     },
   });
 
-  const handelSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log("Form submitted with values:", values);
-    const mutationType = data ? "updateProduct" : "createProduct";
-    const mutationQuery = `
-          mutation {
-            ${mutationType}(${data ? `id: "${data.id}", ` : ""}input: {
-              code: "${values.code}",
-              title: "${values.title}",
-              short: "${values.short}",
-              description: "${values.description}"
-            }) {
-              code
-              description
-              short
-              title
-            }
+    const isUpdate = !!data;
+    const mutationType = isUpdate ? "updateProduct" : "createProduct";
+    
+    const mutationQuery = isUpdate
+      ? `mutation UpdateProduct($id: ID!, $input: ProductInput!) {
+          ${mutationType}(id: $id, input: $input) {
+            code
+            description
+            short
+            title
           }
-        `;
-    await mutateAsync({ input: values, mutation: mutationQuery });
+        }`
+      : `mutation CreateProduct($input: ProductInput!) {
+          ${mutationType}(input: $input) {
+            code
+            description
+            short
+            title
+          }
+        }`;
+    
+    const variables = isUpdate
+      ? {
+          id: values.id,
+          input: {
+            code: values.code,
+            title: values.title,
+            short: values.short,
+            description: values.description,
+          },
+        }
+      : {
+          input: {
+            code: values.code,
+            title: values.title,
+            short: values.short,
+            description: values.description,
+          },
+        };
+    
+    await mutateAsync({ input: values, mutation: mutationQuery, variables });
   };
 
   return (
     <form
       id="product-form"
-      onSubmit={form.handleSubmit(handelSubmit)}
+      onSubmit={form.handleSubmit(handleSubmit)}
       className={`w-full ${className}`}
     >
       {!data && (
