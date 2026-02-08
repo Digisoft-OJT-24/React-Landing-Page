@@ -77,8 +77,6 @@ export default function ProductsManagement({
       request(import.meta.env.VITE_API_URL, getAllProductsQuery),
   });
 
-  console.log("Products data:", data);
-
   // Create hashmap for O(1) product lookup by code
   const productsMap = useMemo(() => {
     const map = new Map<string, GetAllProductsData["getProducts"][0]>();
@@ -120,8 +118,7 @@ export default function ProductsManagement({
   }, [selectedSecondaryItem, productsMap, data]);
 
   return (
-    <>
-      <div className="space-y-3 p-2">
+    <div className="space-y-3 p-2">
         {selectedProduct && (
           <>
             <span className="text-xl font-bold w-full flex flex-row items-center gap-2">
@@ -148,28 +145,28 @@ export default function ProductsManagement({
               <TabsContent value="versions">
                 <DataTable
                   columns={versionColumns}
-                  data={selectedProduct?.versions || []}
+                  data={selectedProduct.versions || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="revisions">
                 <DataTable
                   columns={changelogsColumns}
-                  data={selectedProduct?.changeLogs || []}
+                  data={selectedProduct.changeLogs || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="brochure">
                 <DataTable
                   columns={brochureColumns}
-                  data={selectedProduct?.downloads || []}
+                  data={selectedProduct.downloads || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="faq">
                 <DataTable
                   columns={faqColumns}
-                  data={selectedProduct?.faqs || []}
+                  data={selectedProduct.faqs || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
@@ -177,6 +174,5 @@ export default function ProductsManagement({
           </>
         )}
       </div>
-    </>
   );
 }
