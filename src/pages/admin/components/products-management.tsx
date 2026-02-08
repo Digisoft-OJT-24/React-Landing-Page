@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { gql, request } from "graphql-request";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,9 @@ export default function ProductsManagement({
   >(null);
   const selectedSecondaryItem = useAtomValue(selectedSecondaryItemAtom);
 
+  // Memoize setNavItems to avoid unnecessary re-renders
+  const memoizedSetNavItems = useCallback(setNavItems, [setNavItems]);
+
   // Fetch products
   const getAllProductsQuery = gql`
     query {
@@ -77,8 +80,6 @@ export default function ProductsManagement({
       request(import.meta.env.VITE_API_URL, getAllProductsQuery),
   });
 
-  console.log("Products data:", data);
-
   // Create hashmap for O(1) product lookup by code
   const productsMap = useMemo(() => {
     const map = new Map<string, GetAllProductsData["getProducts"][0]>();
@@ -93,14 +94,14 @@ export default function ProductsManagement({
   // Set nav items
   useEffect(() => {
     if (data?.getProducts) {
-      setNavItems([
+      memoizedSetNavItems([
         ...data.getProducts.map((product) => ({
           title: product.code.toUpperCase(),
           id: product.code.toLowerCase(),
         })),
       ]);
     }
-  }, [data, setNavItems]);
+  }, [data, memoizedSetNavItems]);
 
   // Set selected product: use selectedSecondaryItem if available, otherwise default to first product
   useEffect(() => {
@@ -120,8 +121,7 @@ export default function ProductsManagement({
   }, [selectedSecondaryItem, productsMap, data]);
 
   return (
-    <>
-      <div className="space-y-3 p-2">
+    <div className="space-y-3 p-2">
         {selectedProduct && (
           <>
             <span className="text-xl font-bold w-full flex flex-row items-center gap-2">
@@ -148,28 +148,28 @@ export default function ProductsManagement({
               <TabsContent value="versions">
                 <DataTable
                   columns={versionColumns}
-                  data={selectedProduct?.versions || []}
+                  data={selectedProduct.versions || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="revisions">
                 <DataTable
                   columns={changelogsColumns}
-                  data={selectedProduct?.changeLogs || []}
+                  data={selectedProduct.changeLogs || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="brochure">
                 <DataTable
                   columns={brochureColumns}
-                  data={selectedProduct?.downloads || []}
+                  data={selectedProduct.downloads || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="faq">
                 <DataTable
                   columns={faqColumns}
-                  data={selectedProduct?.faqs || []}
+                  data={selectedProduct.faqs || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>
@@ -177,6 +177,5 @@ export default function ProductsManagement({
           </>
         )}
       </div>
-    </>
   );
 }
