@@ -3,8 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { gql, request } from "graphql-request";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useAtomValue } from "jotai";
 import { selectedSecondaryItemAtom } from "@/atom-store";
 import { Separator } from "@/components/ui/separator";
@@ -14,7 +12,8 @@ import { versionColumns } from "./table-columns/version-columns";
 import { ChangeLog, ProductBrochure, ProductVersion } from "@/types";
 import { changelogsColumns } from "./table-columns/changelogs-columns";
 import { brochureColumns } from "./table-columns/brochure-columns";
-import { Textarea } from "@/components/ui/textarea";
+import ProductForm from "./forms/product_form";
+import { faqColumns } from "./table-columns/faq-columns";
 
 type GetAllProductsData = {
   getProducts: {
@@ -25,6 +24,7 @@ type GetAllProductsData = {
     versions: ProductVersion[];
     changeLogs: ChangeLog[];
     downloads: ProductBrochure[];
+    faqs: { faq: string }[];
   }[];
 };
 
@@ -38,11 +38,6 @@ export default function ProductsManagement({
   const [selectedProduct, setSelectedProduct] = useState<
     GetAllProductsData["getProducts"][0] | null
   >(null);
-  const [formData, setFormData] = useState({
-    title: "",
-    short: "",
-    description: "",
-  });
   const selectedSecondaryItem = useAtomValue(selectedSecondaryItemAtom);
 
   // Fetch products
@@ -69,6 +64,9 @@ export default function ProductsManagement({
           link
           title
         }
+        faqs {
+          faq
+        }
       }
     }
   `;
@@ -78,6 +76,8 @@ export default function ProductsManagement({
     queryFn: async () =>
       request(import.meta.env.VITE_API_URL, getAllProductsQuery),
   });
+
+  console.log("Products data:", data);
 
   // Create hashmap for O(1) product lookup by code
   const productsMap = useMemo(() => {
@@ -106,7 +106,6 @@ export default function ProductsManagement({
   useEffect(() => {
     if (!data?.getProducts || productsMap.size === 0) {
       setSelectedProduct(null);
-      setFormData({ title: "", short: "", description: "" });
       return;
     }
 
@@ -120,19 +119,6 @@ export default function ProductsManagement({
     }
   }, [selectedSecondaryItem, productsMap, data]);
 
-  // Update form data when selected product changes
-  useEffect(() => {
-    if (selectedProduct) {
-      setFormData({
-        title: selectedProduct.title || "",
-        short: selectedProduct.short || "",
-        description: selectedProduct.description || "",
-      });
-    } else {
-      setFormData({ title: "", short: "", description: "" });
-    }
-  }, [selectedProduct]);
-
   return (
     <>
       <div className="space-y-3 p-2">
@@ -142,39 +128,7 @@ export default function ProductsManagement({
               Product <ChevronRight className="w-4 h-4" />{" "}
               {selectedProduct.code.toUpperCase()}
             </span>
-            <form className="flex justify-between items-start gap-2">
-              <div className="w-3/4">
-                <Label>Title</Label>
-                <Input
-                  value={formData.title}
-                  onChange={(e) =>
-                    setFormData({ ...formData, title: e.target.value })
-                  }
-                />
-                <Label>Short</Label>
-                <Input
-                  value={formData.short}
-                  onChange={(e) =>
-                    setFormData({ ...formData, short: e.target.value })
-                  }
-                />
-                <Label>Description</Label>
-                <Textarea
-                  value={formData.description}
-                  onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
-                  }
-                />
-              </div>
-              <div className="w-1/4 flex flex-col gap-2 p-6">
-                <Button type="submit" variant={"outline"}>
-                  Edit
-                </Button>
-                <Button type="button" variant={"destructive"}>
-                  Mark as Inactive
-                </Button>
-              </div>
-            </form>
+            <ProductForm data={selectedProduct} className="max-w-[50%]" />
             <Separator className="my-2" />
             <Tabs defaultValue="versions">
               <TabsList className="w-full justify-around border-b rounded-none">
@@ -186,6 +140,9 @@ export default function ProductsManagement({
                 </TabsTrigger>
                 <TabsTrigger value="brochure" className="w-full">
                   Brochures
+                </TabsTrigger>
+                <TabsTrigger value="faq" className="w-full">
+                  FAQs
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="versions">
@@ -206,6 +163,13 @@ export default function ProductsManagement({
                 <DataTable
                   columns={brochureColumns}
                   data={selectedProduct?.downloads || []}
+                  rightActions={<Button variant={"outline"}>Add</Button>}
+                />
+              </TabsContent>
+              <TabsContent value="faq">
+                <DataTable
+                  columns={faqColumns}
+                  data={selectedProduct?.faqs || []}
                   rightActions={<Button variant={"outline"}>Add</Button>}
                 />
               </TabsContent>

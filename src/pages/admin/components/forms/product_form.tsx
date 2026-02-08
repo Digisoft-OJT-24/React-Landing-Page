@@ -10,6 +10,7 @@ import request, { gql } from "graphql-request";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
 import { toast } from "sonner";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   code: z.string().min(1, "Product code is required"),
@@ -20,10 +21,11 @@ const formSchema = z.object({
 
 type ProductFormProps = {
   data?: Product;
+  className?: string;
 };
-export default function ProductForm({ data }: ProductFormProps) {
+export default function ProductForm({ data, className }: ProductFormProps) {
   const queryClient = useQueryClient();
-  const { closeDialog } = useAlertDialog();
+  const { closeAlert } = useAlertDialog();
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,6 +35,15 @@ export default function ProductForm({ data }: ProductFormProps) {
       description: data?.description || "",
     },
   });
+
+  useEffect(() => {
+    form.reset({
+      code: data?.code || "",
+      title: data?.title || "",
+      short: data?.short || "",
+      description: data?.description || "",
+    });
+  }, [data, form]);
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
@@ -56,7 +67,7 @@ export default function ProductForm({ data }: ProductFormProps) {
       ),
     onSuccess: () => {
       form.reset();
-      closeDialog();
+      closeAlert();
       queryClient.invalidateQueries({
         queryKey: ["admin-products"],
       });
@@ -76,15 +87,19 @@ export default function ProductForm({ data }: ProductFormProps) {
     <form
       id="product-form"
       onSubmit={form.handleSubmit(handelSubmit)}
-      className="w-full"
+      className={`w-full ${className}`}
     >
-      <Label>Product Code</Label>
-      <Input
-        type="text"
-        className="mb-3"
-        placeholder="Enter product code"
-        {...form.register("code")}
-      />
+      {!data && (
+        <>
+          <Label>Product Code</Label>
+          <Input
+            type="text"
+            className="mb-3"
+            placeholder="Enter product code"
+            {...form.register("code")}
+          />
+        </>
+      )}
 
       <Label>Product Name</Label>
       <Input

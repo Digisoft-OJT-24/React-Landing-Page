@@ -47,7 +47,7 @@ export default function AdminPageLayout({
             <section
               className={cn(
                 className,
-                "flex-1 overflow-auto bg-background text-foreground",
+                "flex-1 pb-4 overflow-auto bg-background text-foreground",
               )}
             >
               {children}
