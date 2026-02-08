@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import { useEffect } from "react";
 
 const formSchema = z.object({
+  id: z.coerce.number().optional(),
   code: z.string().min(1, "Product code is required"),
   title: z.string().min(1, "Product name is required"),
   short: z.string().optional(),
@@ -29,6 +30,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      id: data?.id || undefined,
       code: data?.code || "",
       title: data?.title || "",
       short: data?.short || "",
@@ -38,6 +40,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
 
   useEffect(() => {
     form.reset({
+      id: data?.id || undefined,
       code: data?.code || "",
       title: data?.title || "",
       short: data?.short || "",
@@ -46,24 +49,17 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   }, [data, form]);
 
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: async (input: z.infer<typeof formSchema>) =>
+    mutationFn: async ({ 
+      mutation, 
+      variables 
+    }: { 
+      mutation: string;
+      variables: Record<string, unknown>;
+    }) =>
       await request(
         import.meta.env.VITE_API_URL,
-        gql`
-          mutation {
-            createProduct(input: {
-              code: "${input.code}",
-              title: "${input.title}",
-              short: "${input.short}",
-              description: "${input.description}"
-            }) {
-              code
-              description
-              short
-              title
-            }
-          }
-        `,
+        gql`${mutation}`,
+        variables
       ),
     onSuccess: () => {
       form.reset();
@@ -71,22 +67,61 @@ export default function ProductForm({ data, className }: ProductFormProps) {
       queryClient.invalidateQueries({
         queryKey: ["admin-products"],
       });
-      toast.success("Product created successfully");
+      toast.success(`Product ${data ? "updated" : "created"} successfully`);
     },
     onError: () => {
-      toast.error("Failed to create product");
+      toast.error(`Failed to ${data ? "update" : "create"} product`);
     },
   });
 
-  const handelSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with data:", data);
-    await mutateAsync(data);
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    const isUpdate = !!data;
+    const mutationType = isUpdate ? "updateProduct" : "createProduct";
+    
+    const mutationQuery = isUpdate
+      ? `mutation UpdateProduct($id: ID!, $input: ProductInput!) {
+          ${mutationType}(id: $id, input: $input) {
+            code
+            description
+            short
+            title
+          }
+        }`
+      : `mutation CreateProduct($input: ProductInput!) {
+          ${mutationType}(input: $input) {
+            code
+            description
+            short
+            title
+          }
+        }`;
+    
+    const variables = isUpdate
+      ? {
+          id: values.id,
+          input: {
+            code: values.code,
+            title: values.title,
+            short: values.short,
+            description: values.description,
+          },
+        }
+      : {
+          input: {
+            code: values.code,
+            title: values.title,
+            short: values.short,
+            description: values.description,
+          },
+        };
+    
+    await mutateAsync({ mutation: mutationQuery, variables });
   };
 
   return (
     <form
       id="product-form"
-      onSubmit={form.handleSubmit(handelSubmit)}
+      onSubmit={form.handleSubmit(handleSubmit)}
       className={`w-full ${className}`}
     >
       {!data && (
