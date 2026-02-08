@@ -50,11 +50,9 @@ export default function ProductForm({ data, className }: ProductFormProps) {
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async ({ 
-      input, 
       mutation, 
       variables 
     }: { 
-      input: z.infer<typeof formSchema>; 
       mutation: string;
       variables: Record<string, unknown>;
     }) =>
@@ -77,7 +75,6 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with values:", values);
     const isUpdate = !!data;
     const mutationType = isUpdate ? "updateProduct" : "createProduct";
     
@@ -118,7 +115,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
           },
         };
     
-    await mutateAsync({ input: values, mutation: mutationQuery, variables });
+    await mutateAsync({ mutation: mutationQuery, variables });
   };
 
   return (
