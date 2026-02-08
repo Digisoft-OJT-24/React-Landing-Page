@@ -17,14 +17,15 @@ import { faqColumns } from "./table-columns/faq-columns";
 
 type GetAllProductsData = {
   getProducts: {
+    id: number;
     code: string;
     title: string;
     short: string;
     description: string;
-    versions: ProductVersion[];
-    changeLogs: ChangeLog[];
-    downloads: ProductBrochure[];
-    faqs: { faq: string }[];
+    versions?: ProductVersion[];
+    changeLogs?: ChangeLog[];
+    downloads?: ProductBrochure[];
+    faqs?: { faq: string }[];
   }[];
 };
 
@@ -44,6 +45,7 @@ export default function ProductsManagement({
   const getAllProductsQuery = gql`
     query {
       getProducts {
+        id
         code
         title
         short
@@ -77,14 +79,12 @@ export default function ProductsManagement({
       request(import.meta.env.VITE_API_URL, getAllProductsQuery),
   });
 
-  console.log("Products data:", data);
-
   // Create hashmap for O(1) product lookup by code
   const productsMap = useMemo(() => {
     const map = new Map<string, GetAllProductsData["getProducts"][0]>();
     if (data?.getProducts) {
       data.getProducts.forEach((product) => {
-        map.set(product.code.toLowerCase(), product);
+        map.set(product.id.toString(), product);
       });
     }
     return map;
@@ -96,7 +96,7 @@ export default function ProductsManagement({
       setNavItems([
         ...data.getProducts.map((product) => ({
           title: product.code.toUpperCase(),
-          id: product.code.toLowerCase(),
+          id: product.id.toString(),
         })),
       ]);
     }
@@ -125,7 +125,7 @@ export default function ProductsManagement({
         {selectedProduct && (
           <>
             <span className="text-xl font-bold w-full flex flex-row items-center gap-2">
-              Product <ChevronRight className="w-4 h-4" />{" "}
+              Product <ChevronRight className="w-4 h-4" />
               {selectedProduct.code.toUpperCase()}
             </span>
             <ProductForm data={selectedProduct} className="max-w-[50%]" />

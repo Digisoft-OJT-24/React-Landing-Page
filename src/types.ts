@@ -10,6 +10,7 @@ export type School = {
 };
 
 export type Product = {
+  id: number;
   code: string;
   title: string;
   short: string;
