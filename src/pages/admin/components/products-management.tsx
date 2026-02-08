@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { gql, request } from "graphql-request";
 import { Button } from "@/components/ui/button";
@@ -39,9 +39,6 @@ export default function ProductsManagement({
     GetAllProductsData["getProducts"][0] | null
   >(null);
   const selectedSecondaryItem = useAtomValue(selectedSecondaryItemAtom);
-
-  // Memoize setNavItems to avoid unnecessary re-renders
-  const memoizedSetNavItems = useCallback(setNavItems, [setNavItems]);
 
   // Fetch products
   const getAllProductsQuery = gql`
@@ -94,14 +91,14 @@ export default function ProductsManagement({
   // Set nav items
   useEffect(() => {
     if (data?.getProducts) {
-      memoizedSetNavItems([
+      setNavItems([
         ...data.getProducts.map((product) => ({
           title: product.code.toUpperCase(),
           id: product.code.toLowerCase(),
         })),
       ]);
     }
-  }, [data, memoizedSetNavItems]);
+  }, [data, setNavItems]);
 
   // Set selected product: use selectedSecondaryItem if available, otherwise default to first product
   useEffect(() => {
