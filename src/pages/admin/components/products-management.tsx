@@ -19,6 +19,7 @@ import VersionForm from "./forms/version_form";
 import RevisionForm from "./forms/revision_form";
 import BrochureForm from "./forms/brochure_form";
 import FAQForm from "./forms/faq_form";
+import { api_url } from "@/api_url";
 
 type GetAllProductsData = {
   getProducts: {
@@ -83,7 +84,7 @@ export default function ProductsManagement({
   const { data } = useQuery<GetAllProductsData>({
     queryKey: ["admin-products"],
     queryFn: async () =>
-      request(import.meta.env.VITE_API_URL, getAllProductsQuery),
+      request(api_url, getAllProductsQuery),
   });
 
   // Create hashmap for O(1) product lookup by code

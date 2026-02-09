@@ -1,10 +1,12 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 const AppSidebar = React.lazy(() => import("./sidebar"));
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import SecondarySidebar from "./secondary-sidebar";
 import AdminNavbar from "@/pages/admin/components/navbar";
 import { AlertDialogProvider } from "./alert-dialog-provider";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 interface AdminPageLayoutProps {
   children: React.ReactNode;
@@ -18,12 +20,20 @@ export default function AdminPageLayout({
   pageName,
   secondarySidebarItems,
 }: AdminPageLayoutProps) {
+  const navigate = useNavigate();
   const menuItems = useMemo(() => {
     return [
       { title: "Products Management", id: "products-management" },
       { title: "Clients Management", id: "clients-management" },
     ];
   }, []);
+
+  const token = Cookies.get("token");
+  useEffect(() => {
+    if (!token) {
+      navigate("/ds-login");
+    }
+  }, [token])
 
   return (
     <AlertDialogProvider>

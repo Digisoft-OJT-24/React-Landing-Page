@@ -10,6 +10,7 @@ import request, { gql } from "graphql-request";
 import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
+import { api_url } from "@/api_url";
 
 const formSchema = z.object({
   id: z.number().optional(),
@@ -41,7 +42,7 @@ export default function RevisionForm({ productCode, data }: RevisionFormProps) {
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
       request(
-        import.meta.env.VITE_API_URL,
+        api_url,
         gql`
         mutation {
           createChangeLogs(

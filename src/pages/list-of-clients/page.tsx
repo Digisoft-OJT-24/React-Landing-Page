@@ -12,6 +12,7 @@ import { useMemo } from "react";
 import { request, gql } from "graphql-request";
 import { Province, School } from "@/types";
 import { Skeleton } from "@/components/ui/skeleton";
+import { api_url } from "@/api_url";
 
 export default function ListOfClients() {
   type ListOfClientsData = {
@@ -35,7 +36,7 @@ export default function ListOfClients() {
     queryKey: ["list-of-clients"],
     queryFn: async () =>
       request<ListOfClientsData>(
-        import.meta.env.VITE_API_URL,
+        api_url,
         listOfClientQueryDocument,
       ),
   });

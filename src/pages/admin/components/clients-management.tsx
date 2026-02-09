@@ -10,6 +10,7 @@ import { ChevronRight } from "lucide-react";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
 import SchoolForm from "./forms/school_form";
 import { School } from "@/types";
+import { api_url } from "@/api_url";
 
 type ClientsManagementProps = {
   setNavItems: (items: { title: string; id: string }[]) => void;
@@ -50,7 +51,7 @@ export default function ClientsManagement({
   const { data } = useQuery<GetAllClientsData>({
     queryKey: ["admin-clients"],
     queryFn: async () =>
-      request(import.meta.env.VITE_API_URL, getAllClientQueryDocument),
+      request(api_url, getAllClientQueryDocument),
   });
 
   // Create hashmap for O(1) province lookup by ID

@@ -22,6 +22,7 @@ import ViewReleaseNotesTextArea from "../release-notes/components/modal";
 import { Skeleton } from "@/components/ui/skeleton";
 import ErrorPage from "@/components/custom/page/ErrorPage";
 import { format } from "date-fns";
+import { api_url } from "@/api_url";
 
 export default function ProductPreview() {
   const { id } = useParams();
@@ -81,7 +82,7 @@ export default function ProductPreview() {
     queryKey: ["product-details", id],
     queryFn: async () =>
       request<GetProductDetailsData>(
-        import.meta.env.VITE_API_URL,
+        api_url,
         GetProductDetailDocument,
       ),
   });

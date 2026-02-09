@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import request, { gql } from "graphql-request";
 import { toast } from "sonner";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
+import { api_url } from "@/api_url";
 
 const formSchema = z.object({
   id: z.number().optional(),
@@ -38,7 +39,7 @@ export default function FAQForm({ productCode, data }: FAQFormProps) {
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
-      request(import.meta.env.VITE_API_URL, gql`
+      request(api_url, gql`
         mutation {
           createProductFaq (input:  {
             id: 0

@@ -10,6 +10,7 @@ import request, { gql } from "graphql-request";
 import { toast } from "sonner";
 import { useState } from "react";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
+import { file_url } from "@/api_url";
 
 const formSchema = z.object({
   id: z.number().optional(),
@@ -73,7 +74,7 @@ export default function BrochureForm({ productCode, data }: BrochureFormProps) {
       formData.append("file", file);
 
       const response = await fetch(
-        `${import.meta.env.VITE_FILE_URL}/api/Files/upload`,
+        `${file_url}/api/Files/upload`,
         {
           method: "POST",
           headers: {

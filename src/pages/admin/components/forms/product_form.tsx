@@ -11,6 +11,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
 import { toast } from "sonner";
 import { useEffect } from "react";
+import { api_url } from "@/api_url";
 
 const formSchema = z.object({
   id: z.number().optional(),
@@ -51,7 +52,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   const { mutateAsync: createProduct, isPending: isCreating } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
       await request(
-        import.meta.env.VITE_API_URL,
+        api_url,
         gql`
           mutation {
             createProduct(input: {
@@ -85,7 +86,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   const { mutateAsync: updateProduct, isPending: isUpdating } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
       await request(
-        import.meta.env.VITE_API_URL,
+        api_url,
         gql`
           mutation {
             updateProduct(id: ${input.id} input: {  

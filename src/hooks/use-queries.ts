@@ -1,3 +1,4 @@
+import { api_url } from "@/api_url";
 import { GetAllProductsData } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { gql, request } from "graphql-request";
@@ -18,7 +19,7 @@ export function GetAllProductsQuery() {
     queryKey: ["all-products"],
     queryFn: async () =>
       request<GetAllProductsData>(
-        import.meta.env.VITE_API_URL,
+        api_url,
         getAllProductsQueryDocument,
       ),
   });

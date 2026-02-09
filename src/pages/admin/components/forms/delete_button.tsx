@@ -1,3 +1,4 @@
+import { api_url } from "@/api_url";
 import { Button } from "@/components/ui/button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import request, { gql } from "graphql-request";
@@ -18,13 +19,13 @@ export default function DeleteButton({
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () =>
       await request(
-        import.meta.env.VITE_API_URL,
+        api_url,
         gql`
           ${queryDocument}
         `,
       ),
     onSuccess: () => {
-      toast("Deleted successfully");
+      toast.success("Deleted successfully");
       queryClient.invalidateQueries({ queryKey: [queryKey] });
     },
     onError: () => {

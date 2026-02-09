@@ -12,6 +12,7 @@ import request, { gql } from "graphql-request";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { ChangeLog, Product } from "@/types";
+import { api_url } from "@/api_url";
 
 export default function ReleaseNotes() {
   type GetAllChangeLogsData = {
@@ -38,7 +39,7 @@ export default function ReleaseNotes() {
     queryKey: ["release-notes"],
     queryFn: async () =>
       request<GetAllChangeLogsData>(
-        import.meta.env.VITE_API_URL,
+        api_url,
         GetAllChangeLogsDocument,
       ),
   });

@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
+import { api_url, file_url } from "@/api_url";
 
 const formSchema = z.object({
   id: z.number().optional(),
@@ -44,7 +45,7 @@ export default function VersionForm({ productCode, data }: VersionFormProps) {
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
-      request(import.meta.env.VITE_API_URL, gql`
+      request(api_url, gql`
         mutation {
             createProductVersion(input:  {
                 id: 0
@@ -77,7 +78,7 @@ export default function VersionForm({ productCode, data }: VersionFormProps) {
       formData.append("file", file);
 
       const response = await fetch(
-        `${import.meta.env.VITE_FILE_URL}/api/Files/upload`,
+        `${file_url}/api/Files/upload`,
         {
           method: "POST",
           headers: {

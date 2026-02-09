@@ -9,6 +9,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import request, { gql } from "graphql-request";
 import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
 import { toast } from "sonner";
+import { api_url } from "@/api_url";
 
 const formSchema = z.object({
   name: z.string().min(1, "School name is required"),
@@ -31,7 +32,7 @@ export default function SchoolForm({ provinceId, data }: SchoolFormProps) {
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
       request(
-        import.meta.env.VITE_API_URL,
+        api_url,
         gql`
           mutation {
             createSchool(input: { id: 0 name: "${input.name}" provinceId: ${provinceId || data?.provinceId} }) {
