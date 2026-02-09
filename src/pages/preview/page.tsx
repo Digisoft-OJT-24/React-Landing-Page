@@ -228,7 +228,7 @@ export default function ProductPreview() {
                     options={productDetailsByCode[
                       id?.toUpperCase() as string
                     ]?.versions.map((dl) => {
-                      return { label: dl.version, value: dl.version };
+                      return { label: dl.version, value: dl.link };
                     })}
                   />
                 ) : (
