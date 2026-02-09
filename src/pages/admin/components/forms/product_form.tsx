@@ -13,6 +13,7 @@ import { toast } from "sonner";
 import { useEffect } from "react";
 
 const formSchema = z.object({
+  id: z.number().optional(),
   code: z.string().min(1, "Product code is required"),
   title: z.string().min(1, "Product name is required"),
   short: z.string().optional(),
@@ -29,6 +30,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      id: data?.id || undefined,
       code: data?.code || "",
       title: data?.title || "",
       short: data?.short || "",
@@ -38,6 +40,7 @@ export default function ProductForm({ data, className }: ProductFormProps) {
 
   useEffect(() => {
     form.reset({
+      id: data?.id || undefined,
       code: data?.code || "",
       title: data?.title || "",
       short: data?.short || "",
@@ -45,13 +48,14 @@ export default function ProductForm({ data, className }: ProductFormProps) {
     });
   }, [data, form]);
 
-  const { mutateAsync, isPending } = useMutation({
+  const { mutateAsync: createProduct, isPending: isCreating } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
       await request(
         import.meta.env.VITE_API_URL,
         gql`
           mutation {
             createProduct(input: {
+              id: 0,
               code: "${input.code}",
               title: "${input.title}",
               short: "${input.short}",
@@ -78,9 +82,46 @@ export default function ProductForm({ data, className }: ProductFormProps) {
     },
   });
 
+  const { mutateAsync: updateProduct, isPending: isUpdating } = useMutation({
+    mutationFn: async (input: z.infer<typeof formSchema>) =>
+      await request(
+        import.meta.env.VITE_API_URL,
+        gql`
+          mutation {
+            updateProduct(id: ${input.id} input: {  
+            id: ${input.id},
+              code: "${input.code}",
+              title: "${input.title}",
+              short: "${input.short}",
+              description: "${input.description}"
+            }) {
+              code
+              description
+              short
+              title
+            }
+          }
+        `,
+      ),
+    onSuccess: () => {
+      form.reset();
+      closeAlert();
+      queryClient.invalidateQueries({
+        queryKey: ["admin-products"],
+      });
+      toast.success("Product updated successfully");
+    },
+    onError: () => {
+      toast.error("Failed to update product");
+    },
+  });
+
   const handelSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with data:", data);
-    await mutateAsync(data);
+    if (data?.id) {
+      await updateProduct(data);
+    } else {
+      await createProduct(data);
+    }
   };
 
   return (
@@ -127,10 +168,10 @@ export default function ProductForm({ data, className }: ProductFormProps) {
       <Button
         type="submit"
         className="w-full"
-        disabled={isPending}
-        variant={isPending ? "outline" : "default"}
+        disabled={isCreating || isUpdating}
+        variant={isCreating || isUpdating ? "outline" : "default"}
       >
-        {isPending ? "Saving..." : "Save"}
+        {isCreating || isUpdating ? "Saving..." : "Save"}
       </Button>
     </form>
   );

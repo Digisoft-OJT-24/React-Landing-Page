@@ -5,8 +5,7 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
   useReactTable,
-} from "@tanstack/react-table"
-
+} from "@tanstack/react-table";
 import {
   Table,
   TableBody,
@@ -14,16 +13,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import { Search } from "lucide-react"
+} from "@/components/ui/table";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-  rightActions?: React.ReactNode
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+  rightActions?: React.ReactNode;
 }
 
 export function DataTable<TData, TValue>({
@@ -31,7 +30,7 @@ export function DataTable<TData, TValue>({
   data,
   rightActions,
 }: DataTableProps<TData, TValue>) {
-  const [globalFilter, setGlobalFilter] = useState("")
+  const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
     data,
@@ -44,23 +43,24 @@ export function DataTable<TData, TValue>({
       if (!search) return true;
 
       // Search across all cell values
-      return Object.values(row.original as Record<string, unknown>).some((value) => {
-        if (value === null || value === undefined) return false;
-        return String(value).toLowerCase().includes(search.toLowerCase());
-      });
+      return Object.values(row.original as Record<string, unknown>).some(
+        (value) => {
+          if (value === null || value === undefined) return false;
+          return String(value).toLowerCase().includes(search.toLowerCase());
+        },
+      );
     },
     state: {
       globalFilter,
     },
     onGlobalFilterChange: setGlobalFilter,
-  })
-
+  });
 
   return (
     <div className="overflow-hidden space-y-2 p-1">
       <div className="flex justify-between items-center gap-4">
         <div className="relative flex-1 max-w-sm">
-          <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search..."
             value={globalFilter ?? ""}
@@ -68,7 +68,27 @@ export function DataTable<TData, TValue>({
             className="pl-8"
           />
         </div>
+        <div className="flex gap-2 items-center justify-between">
+                    <div className="flex items-center justify-end space-x-2 py-4">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => table.previousPage()}
+                disabled={!table.getCanPreviousPage()}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => table.nextPage()}
+                disabled={!table.getCanNextPage()}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
         {rightActions}
+        </div>
       </div>
       <Table className="border">
         <TableHeader>
@@ -80,11 +100,11 @@ export function DataTable<TData, TValue>({
                     {header.isPlaceholder
                       ? null
                       : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
                   </TableHead>
-                )
+                );
               })}
             </TableRow>
           ))}
@@ -112,24 +132,6 @@ export function DataTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
-      </div>
     </div>
-  )
+  );
 }

@@ -51,7 +51,6 @@ export default function ProvinceForm({ data }: ProvinceFormProps) {
   });
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with data:", data);
     await mutateAsync(data);
   };
   return (

@@ -1,67 +1,79 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { School } from "@/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import request, { gql } from "graphql-request";
-import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
 import { toast } from "sonner";
+import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
 
 const formSchema = z.object({
-  name: z.string().min(1, "School name is required"),
+  id: z.number().optional(),
+  productCode: z.string().optional(),
+  faq: z.string().min(1, "FAQ is required"),
 });
 
-type SchoolFormProps = {
-  provinceId?: string;
-  data?: School;
+type FAQFormProps = {
+  productCode: string;
+  data?: {
+    id: number;
+    productCode: string;
+    faq: string;
+  };
 };
-export default function SchoolForm({ provinceId, data }: SchoolFormProps) {
+export default function FAQForm({ productCode, data }: FAQFormProps) {
   const queryClient = useQueryClient();
   const { closeAlert } = useAlertDialog();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: data?.name || "",
+      id: data?.id || undefined,
+      productCode: productCode || data?.productCode || "",
+      faq: data?.faq || "",
     },
   });
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (input: z.infer<typeof formSchema>) =>
-      request(
-        import.meta.env.VITE_API_URL,
-        gql`
-          mutation {
-            createSchool(input: { id: 0 name: "${input.name}" provinceId: ${provinceId || data?.provinceId} }) {
-              name
-            }
+      request(import.meta.env.VITE_API_URL, gql`
+        mutation {
+          createProductFaq (input:  {
+            id: 0
+            faq: "${input.faq}"
+            productCode: "${productCode}"
+          }) {
+            faq
+            productCode
           }
-        `,
-      ),
+        }
+        `),
     onSuccess: () => {
       form.reset();
       closeAlert();
-      queryClient.invalidateQueries({ queryKey: ["admin-clients"] });
-      toast.success("School created successfully");
+      queryClient.invalidateQueries({ queryKey: ["admin-products"] });
+      toast.success("FAQ added successfully");
     },
     onError: () => {
-      toast.error("Failed to create school");
+      toast.error("Failed to add FAQ");
     },
   });
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     await mutateAsync(data);
   };
+
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
-      <Label>School Name:</Label>
+
+      <Label>FAQ:</Label>
       <Input
         type="text"
         className="mb-3"
-        placeholder="Enter school name"
-        {...form.register("name")}
+        placeholder="Enter FAQ"
+        {...form.register("faq")}
       />
 
       <Button

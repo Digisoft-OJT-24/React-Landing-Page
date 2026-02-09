@@ -18,6 +18,7 @@ export type Product = {
 };
 
 export type ChangeLog = {
+  id: number;
   appName: string;
   description: string;
   version: string;
@@ -25,17 +26,18 @@ export type ChangeLog = {
 };
 
 export type ProductBrochure = {
+  id: number;
   productCode: string;
   title: string;
   link: string;
 };
 
 export type ProductVersion = {
-  id: string;
+  id: number; 
   productCode: string;
   version: string;
   link: string;
-  notes: string;
+  note: string;
   createdAt: string;
 };
 

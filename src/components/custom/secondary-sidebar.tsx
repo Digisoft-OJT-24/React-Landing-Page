@@ -72,11 +72,6 @@ export default function SecondarySidebar({
     }
   };
 
-  console.log(
-    selectedSecondaryItem,
-    "selectedSecondaryItem in SecondarySidebar",
-  );
-
   // Add new item handler (placeholder)
   const selectedMenuItem = useAtomValue(selectedMenuItemAtom);
   const { openAlert } = useAlertDialog();

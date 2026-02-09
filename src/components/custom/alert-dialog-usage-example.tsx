@@ -19,11 +19,6 @@ export function ExampleComponent() {
       confirmText: "Delete",
       cancelText: "Cancel",
       variant: "destructive",
-      onConfirm: async () => {
-        // Your delete logic here
-        console.log("Item deleted");
-        // await deleteItem();
-      },
     });
   };
 
@@ -33,11 +28,6 @@ export function ExampleComponent() {
       description: "Do you want to save your changes?",
       confirmText: "Save",
       cancelText: "Cancel",
-      onConfirm: async () => {
-        // Your save logic here
-        console.log("Changes saved");
-        // await saveChanges();
-      },
     });
   };
 

@@ -14,6 +14,11 @@ import { changelogsColumns } from "./table-columns/changelogs-columns";
 import { brochureColumns } from "./table-columns/brochure-columns";
 import ProductForm from "./forms/product_form";
 import { faqColumns } from "./table-columns/faq-columns";
+import { useAlertDialog } from "@/components/custom/alert-dialog-provider";
+import VersionForm from "./forms/version_form";
+import RevisionForm from "./forms/revision_form";
+import BrochureForm from "./forms/brochure_form";
+import FAQForm from "./forms/faq_form";
 
 type GetAllProductsData = {
   getProducts: {
@@ -36,6 +41,7 @@ type ProductsManagementProps = {
 export default function ProductsManagement({
   setNavItems,
 }: ProductsManagementProps) {
+  const { openAlert } = useAlertDialog();
   const [selectedProduct, setSelectedProduct] = useState<
     GetAllProductsData["getProducts"][0] | null
   >(null);
@@ -55,6 +61,7 @@ export default function ProductsManagement({
           link
           productCode
           version
+          note
         }
         changeLogs {
           date
@@ -149,28 +156,47 @@ export default function ProductsManagement({
                 <DataTable
                   columns={versionColumns}
                   data={selectedProduct?.versions || []}
-                  rightActions={<Button variant={"outline"}>Add</Button>}
+                  rightActions={<Button variant={"outline"} onClick={() => openAlert({
+                    title: "Add Version",
+                    description: "Fill in the details to add a new version for this product.",
+                    content: <VersionForm productCode={selectedProduct.code} />,
+                  })}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="revisions">
                 <DataTable
                   columns={changelogsColumns}
                   data={selectedProduct?.changeLogs || []}
-                  rightActions={<Button variant={"outline"}>Add</Button>}
+                  rightActions={<Button variant={"outline"} onClick={() => {
+                    openAlert({
+                      title: "Add New Revision",
+                      content: <RevisionForm productCode={selectedProduct.code} />
+                    })
+                  }}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="brochure">
                 <DataTable
                   columns={brochureColumns}
                   data={selectedProduct?.downloads || []}
-                  rightActions={<Button variant={"outline"}>Add</Button>}
+                  rightActions={<Button variant={"outline"} onClick={() => {
+                    openAlert({
+                      title: "Add New Brochure",
+                      content: <BrochureForm productCode={selectedProduct.code} />
+                    })
+                  }}>Add</Button>}
                 />
               </TabsContent>
               <TabsContent value="faq">
                 <DataTable
                   columns={faqColumns}
                   data={selectedProduct?.faqs || []}
-                  rightActions={<Button variant={"outline"}>Add</Button>}
+                  rightActions={<Button variant={"outline"} onClick={() => {
+                    openAlert({
+                      title: "Add FAQ",
+                      content: <FAQForm productCode={selectedProduct.code} />
+                    })
+                  }}>Add</Button>}
                 />
               </TabsContent>
             </Tabs>

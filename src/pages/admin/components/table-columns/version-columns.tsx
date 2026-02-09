@@ -7,8 +7,8 @@ export const versionColumns: ColumnDef<ProductVersion>[] = [
     header: "Version",
   },
   {
-    accessorKey: "notes",
+    accessorKey: "note",
     header: () => <div className="text-end">Notes</div>,
-    cell: ({ row }) => <div className="text-end">{row.original.notes ?? "No notes"}</div>,
+    cell: ({ row }) => <div className="text-end">{row.original.note ?? "No notes"}</div>,
   },
 ]
