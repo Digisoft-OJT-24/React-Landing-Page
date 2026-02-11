@@ -1,2 +1,2 @@
-export const api_url ="http://167.86.126.108:5000/graphql/"
-export const file_url ="http://167.86.126.108:5000"
+export const api_url ="http://homis.ph:5000/graphql/"
+export const file_url ="http://homis.ph:5000"
