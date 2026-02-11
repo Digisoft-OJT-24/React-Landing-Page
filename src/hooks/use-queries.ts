@@ -6,7 +6,7 @@ import { gql, request } from "graphql-request";
 export function GetAllProductsQuery() {
   const getAllProductsQueryDocument = gql`
     query {
-      getProducts {
+      getProducts () {
         code
         description
         short

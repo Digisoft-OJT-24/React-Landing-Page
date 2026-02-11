@@ -36,7 +36,9 @@ export function FeaturesSectionDemo() {
   ];
   return (
     <section className="w-full relative p-0 m-0">
-      <CenterOverlay />
+      {/* <CenterOverlay /> */}
+      <div className="w-full xs:h-[120px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[400px] 2xl:h-[460px] bg-[url('/images/overlay/center.svg')] bg-cover bg-no-repeat bg-center p-0 m-0"></div>
+
 
       {/* CONTENT  */}
       <div className="relative z-20 pt-10 max-w-7xl mx-auto">

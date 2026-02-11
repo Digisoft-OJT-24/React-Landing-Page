@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,6 +16,17 @@ const HamburgerMenu = React.lazy(() => import("./hamburger-menu"));
 
 export default function NavBar() {
   const { data, isLoading, error } = GetAllProductsQuery();
+
+    const products = useMemo(() => {
+      if (!data?.getProducts) return [];
+  
+      const sias = data.getProducts.find((product) => product.code === "SIAS");
+      const others = data.getProducts.filter(
+        (product) => product.code !== "SIAS",
+      );
+  
+      return sias ? [sias, ...others] : others;
+    }, [data?.getProducts]);
   return (
     <nav className="w-full text-white bg-[#004580] 2xl:p-4 xs:p-2 z-50">
       <div className="2xl:container xs:w-full sm:w-full mx-auto flex justify-between items-center">
@@ -48,7 +59,7 @@ export default function NavBar() {
                   <>
                     {data && (
                       <ul className="grid grid-cols-2 gap-3 p-4 w-[500px] z-50">
-                        {data.getProducts.map((product, index: number) => (
+                        {products.map((product, index: number) => (
                           <ListItem
                             className="text-primary col-span-full"
                             key={index}

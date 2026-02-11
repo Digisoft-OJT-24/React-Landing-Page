@@ -1,6 +1,7 @@
 import { GetAllProductsQuery } from "@/hooks/use-queries";
 import { cn } from "@/lib/utils";
 import { Facebook, MailIcon, Phone, MapPin } from "lucide-react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 
 interface FooterProps {
@@ -8,7 +9,16 @@ interface FooterProps {
 }
 export default function Footer({ className }: FooterProps) {
   const { data } = GetAllProductsQuery();
+  const products = useMemo(() => {
+    if (!data?.getProducts) return [];
 
+    const sias = data.getProducts.find((product) => product.code === "SIAS");
+    const others = data.getProducts.filter(
+      (product) => product.code !== "SIAS",
+    );
+
+    return sias ? [sias, ...others] : others;
+  }, [data?.getProducts]);
   return (
     <>
       <footer className="w-full text-current flex flex-col justify-start items-center bg-[#16294a] text-white border-0 p-0 m-0">
@@ -21,7 +31,7 @@ export default function Footer({ className }: FooterProps) {
               </label>
               {data && (
                 <ul>
-                  {data.getProducts.map((product, index: number) => (
+                  {products.map((product, index: number) => (
                     <li key={index} className="mb-1">
                       <Link to={`/products/${product.code}`}>
                         {product.code as string}
@@ -82,7 +92,7 @@ export default function Footer({ className }: FooterProps) {
           <div className="text-sm text-center pb-2 xs:text-[12px]">
             <p>All Rights Reserved 2003-2019</p>
             <p>Digital Software Corporation &copy; 2003-2019</p>
-            <p>Designed by Okonut</p>
+            <p>Designed by Okonut, ReCruas & Pnorky</p>
           </div>
         </section>
       </footer>

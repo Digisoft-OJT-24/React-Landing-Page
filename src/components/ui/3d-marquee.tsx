@@ -36,7 +36,7 @@ export const ThreeDMarquee = ({
               <motion.div
                 animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
                 transition={{
-                  duration: colIndex % 2 === 0 ? 50 : 100, // Increased duration for slower movement
+                  duration: colIndex % 2 === 0 ? 300 : 350, // Increased duration for slower movement
                   repeat: Infinity,
                   repeatType: "reverse",
                   delay: colIndex % 2 === 0 ? 0.2 : 0.1, // Added delay
