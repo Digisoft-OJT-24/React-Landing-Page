@@ -1,5 +1,5 @@
-import { ProductVersion } from "@/types"
-import { ColumnDef } from "@tanstack/react-table"
+import { ProductVersion } from "@/types";
+import { ColumnDef } from "@tanstack/react-table";
 
 export const versionColumns: ColumnDef<ProductVersion>[] = [
   {
@@ -8,7 +8,21 @@ export const versionColumns: ColumnDef<ProductVersion>[] = [
   },
   {
     accessorKey: "note",
-    header: () => <div className="text-end">Notes</div>,
-    cell: ({ row }) => <div className="text-end">{row.original.note ?? "No notes"}</div>,
+    header: "Notes",
+    cell: (row) => <div>{(row.getValue() as string) ?? "No Notes"}</div>,
   },
-]
+  {
+    accessorKey: "link",
+    header: () => <div className="text-end">Link</div>,
+    cell: (row) => (
+      <a
+        className="text-end flex justify-end"
+        href={row.getValue() as string}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Download
+      </a>
+    ),
+  },
+];

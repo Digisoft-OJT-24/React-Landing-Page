@@ -151,19 +151,11 @@ export default function ProductForm({ data, className }: ProductFormProps) {
         {...form.register("title")}
       />
 
-      <Label>Product Short</Label>
-      <Input
-        type="text"
-        className="mb-3"
-        placeholder="Enter product short description"
-        {...form.register("short")}
-      />
-
       <Label>Product Description</Label>
       <Textarea
         className="mb-3"
         placeholder="Enter product description"
-        {...form.register("description")}
+        {...form.register("short")}
       />
 
       <Button

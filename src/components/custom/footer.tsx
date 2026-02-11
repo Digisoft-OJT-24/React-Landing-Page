@@ -92,7 +92,7 @@ export default function Footer({ className }: FooterProps) {
           <div className="text-sm text-center pb-2 xs:text-[12px]">
             <p>All Rights Reserved 2003-2019</p>
             <p>Digital Software Corporation &copy; 2003-2019</p>
-            <p>Designed by Okonut, ReCruas & Pnorky</p>
+            <p>Designed by Okonut, ReCruas, Pnorky & Antey</p>
           </div>
         </section>
       </footer>

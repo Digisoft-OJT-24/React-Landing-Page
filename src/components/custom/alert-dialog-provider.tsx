@@ -50,7 +50,7 @@ export function AlertDialogProvider({
       <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>
+            <AlertDialogTitle className="text-[#ffa500] uppercase">
               {options?.title || "Confirm Action"}
             </AlertDialogTitle>
             {options?.description && (

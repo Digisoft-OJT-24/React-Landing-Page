@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { useSetAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { Link } from "react-router-dom";
 
 interface AppSidebarProps {
@@ -17,7 +17,7 @@ interface AppSidebarProps {
   menuItems?: { title: string; id: string }[];
 }
 export default function AppSidebar({ pageName, menuItems }: AppSidebarProps) {
-  const setSelectedMenuItem = useSetAtom(selectedMenuItemAtom);
+  const [selectedMenuItem, setSelectedMenuItem] = useAtom(selectedMenuItemAtom);
   const setSelectedSecondaryItem = useSetAtom(selectedSecondaryItemAtom);
 
   function scrollIntoElement(id: string) {
@@ -44,6 +44,7 @@ export default function AppSidebar({ pageName, menuItems }: AppSidebarProps) {
               {menuItems?.map((item, index) => (
                 <SidebarMenuItem key={index}>
                   <SidebarMenuButton
+                    isActive={selectedMenuItem === item.id}
                     onClick={() => {
                       setSelectedMenuItem(item.id);
                       setSelectedSecondaryItem(null);

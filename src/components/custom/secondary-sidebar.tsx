@@ -143,6 +143,7 @@ export default function SecondarySidebar({
                 {filteredItems.map((item) => (
                   <SidebarMenuItem key={item.id}>
                     <SidebarMenuButton
+                      isActive={item.id === selectedSecondaryItem}
                       className="uppercase"
                       onClick={() => handleSelectProduct(item.id)}
                     >

@@ -83,8 +83,7 @@ export default function ProductsManagement({
 
   const { data } = useQuery<GetAllProductsData>({
     queryKey: ["admin-products"],
-    queryFn: async () =>
-      request(api_url, getAllProductsQuery),
+    queryFn: async () => request(api_url, getAllProductsQuery),
   });
 
   // Create hashmap for O(1) product lookup by code
@@ -132,8 +131,8 @@ export default function ProductsManagement({
       <div className="space-y-3 p-2">
         {selectedProduct && (
           <>
-            <span className="text-xl font-bold w-full flex flex-row items-center gap-2">
-              Product <ChevronRight className="w-4 h-4" />
+            <span className="text-[#ffa500] uppercase text-xl font-bold w-full flex flex-row items-center gap-2">
+              Product <ChevronRight className="w-4 h-4 text-foreground" />
               {selectedProduct.code.toUpperCase()}
             </span>
             <ProductForm data={selectedProduct} className="max-w-[50%]" />
@@ -157,47 +156,86 @@ export default function ProductsManagement({
                 <DataTable
                   columns={versionColumns}
                   data={selectedProduct?.versions || []}
-                  rightActions={<Button variant={"outline"} onClick={() => openAlert({
-                    title: "Add Version",
-                    description: "Fill in the details to add a new version for this product.",
-                    content: <VersionForm productCode={selectedProduct.code} />,
-                  })}>Add</Button>}
+                  rightActions={
+                    <Button
+                      variant={"outline"}
+                      onClick={() =>
+                        openAlert({
+                          title: "Add Version",
+                          description:
+                            "Fill in the details to add a new version for this product.",
+                          content: (
+                            <VersionForm productCode={selectedProduct.code} />
+                          ),
+                        })
+                      }
+                    >
+                      Add
+                    </Button>
+                  }
                 />
               </TabsContent>
               <TabsContent value="revisions">
                 <DataTable
                   columns={changelogsColumns}
                   data={selectedProduct?.changeLogs || []}
-                  rightActions={<Button variant={"outline"} onClick={() => {
-                    openAlert({
-                      title: "Add New Revision",
-                      content: <RevisionForm productCode={selectedProduct.code} />
-                    })
-                  }}>Add</Button>}
+                  rightActions={
+                    <Button
+                      variant={"outline"}
+                      onClick={() => {
+                        openAlert({
+                          title: "Add New Revision",
+                          content: (
+                            <RevisionForm productCode={selectedProduct.code} />
+                          ),
+                        });
+                      }}
+                    >
+                      Add
+                    </Button>
+                  }
                 />
               </TabsContent>
               <TabsContent value="brochure">
                 <DataTable
                   columns={brochureColumns}
                   data={selectedProduct?.downloads || []}
-                  rightActions={<Button variant={"outline"} onClick={() => {
-                    openAlert({
-                      title: "Add New Brochure",
-                      content: <BrochureForm productCode={selectedProduct.code} />
-                    })
-                  }}>Add</Button>}
+                  rightActions={
+                    <Button
+                      variant={"outline"}
+                      onClick={() => {
+                        openAlert({
+                          title: "Add New Brochure",
+                          content: (
+                            <BrochureForm productCode={selectedProduct.code} />
+                          ),
+                        });
+                      }}
+                    >
+                      Add
+                    </Button>
+                  }
                 />
               </TabsContent>
               <TabsContent value="faq">
                 <DataTable
                   columns={faqColumns}
                   data={selectedProduct?.faqs || []}
-                  rightActions={<Button variant={"outline"} onClick={() => {
-                    openAlert({
-                      title: "Add FAQ",
-                      content: <FAQForm productCode={selectedProduct.code} />
-                    })
-                  }}>Add</Button>}
+                  rightActions={
+                    <Button
+                      variant={"outline"}
+                      onClick={() => {
+                        openAlert({
+                          title: "Add FAQ",
+                          content: (
+                            <FAQForm productCode={selectedProduct.code} />
+                          ),
+                        });
+                      }}
+                    >
+                      Add
+                    </Button>
+                  }
                 />
               </TabsContent>
             </Tabs>

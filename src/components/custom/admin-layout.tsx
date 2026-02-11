@@ -7,6 +7,8 @@ import AdminNavbar from "@/pages/admin/components/navbar";
 import { AlertDialogProvider } from "./alert-dialog-provider";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { useAtomValue } from "jotai";
+import { selectedMenuItemAtom } from "@/atom-store";
 
 interface AdminPageLayoutProps {
   children: React.ReactNode;
@@ -27,13 +29,17 @@ export default function AdminPageLayout({
       { title: "Clients Management", id: "clients-management" },
     ];
   }, []);
+  const selectedMenuItem = useAtomValue(selectedMenuItemAtom);
+  const activeMenuItem = useMemo(() => {
+    return menuItems.find((item) => item.id === selectedMenuItem)?.title;
+  }, [selectedMenuItem]);
 
   const token = Cookies.get("token");
   useEffect(() => {
     if (!token) {
       navigate("/ds-login");
     }
-  }, [token])
+  }, [token]);
 
   return (
     <AlertDialogProvider>
@@ -43,7 +49,7 @@ export default function AdminPageLayout({
 
         {/* Secondary Sidebar + Content Area */}
         <SidebarInset className="flex flex-col w-full h-screen overflow-hidden">
-          <AdminNavbar pageName="Admin Controls" />
+          <AdminNavbar pageName={activeMenuItem as string} />
           <main className="flex flex-row w-full h-screen">
             {/* Secondary Sidebar - Custom implementation without Sidebar component spacer */}
             <aside

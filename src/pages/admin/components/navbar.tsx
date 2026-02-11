@@ -11,13 +11,15 @@ export default function AdminNavbar({ pageName }: AdminNavbarProps) {
   const navigate = useNavigate();
   return (
     <nav className="w-full flex justify-between items-center px-6 py-4 border-b">
-      <div className="text-2xl font-bold">{pageName}</div>
+      <div className="text-2xl font-bold text-[#ffa500] uppercase">
+        {pageName}
+      </div>
       <div className="flex justify-end items-center gap-2">
         <ModeToggle />
         <Button
           variant="ghost"
-          onClick={() => {
-            Cookies.remove("token");
+          onClick={async () => {
+            await Cookies.remove("token");
             navigate("/ds-login");
           }}
         >
