@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { CenterOverlay } from "@/components/custom/center-overlay";
+// import { CenterOverlay } from "@/components/custom/center-overlay";
 
 export function FeaturesSectionDemo() {
   const features = [
