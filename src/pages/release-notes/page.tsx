@@ -27,6 +27,7 @@ export default function ReleaseNotes() {
         description
         version
         revision
+        date
       }
       getProducts {
         code
@@ -38,10 +39,7 @@ export default function ReleaseNotes() {
   const { data } = useQuery({
     queryKey: ["release-notes"],
     queryFn: async () =>
-      request<GetAllChangeLogsData>(
-        api_url,
-        GetAllChangeLogsDocument,
-      ),
+      request<GetAllChangeLogsData>(api_url, GetAllChangeLogsDocument),
   });
 
   const changeLogsByProduct = useMemo(() => {
@@ -50,15 +48,35 @@ export default function ReleaseNotes() {
       (map, log) => {
         if (log.appName) {
           if (!map[log.appName]) {
-            map[log.appName] = [];
+            map[log.appName] = {};
           }
-          map[log.appName].push(log);
+          if (!map[log.appName][log.version]) {
+            map[log.appName][log.version] = {
+              descriptions: [],
+              date: log.date,
+            };
+          }
+          map[log.appName][log.version].descriptions.push(log.description);
         }
         return map;
       },
-      {} as Record<string, ChangeLog[]>,
+      {} as Record<
+        string,
+        Record<string, { descriptions: string[]; date: string }>
+      >,
     );
   }, [data?.getChangeLogss]);
+
+  const products = useMemo(() => {
+    if (!data?.getProducts) return [];
+
+    const sias = data.getProducts.find((product) => product.code === "SIAS");
+    const others = data.getProducts.filter(
+      (product) => product.code !== "SIAS",
+    );
+
+    return sias ? [sias, ...others] : others;
+  }, [data?.getProducts]);
 
   return (
     <PageLayout hasNavbar>
@@ -73,15 +91,21 @@ export default function ReleaseNotes() {
         <ContentCard className="min-h-[50vh]">
           {data && (
             <Accordion type="single" collapsible>
-              {data.getProducts.map((product, index: number) => (
+              {products.map((product, index: number) => (
                 <AccordionItem key={index} value={`item-${index}`}>
                   <AccordionTrigger>{`${product.title} (${product.code})`}</AccordionTrigger>
                   <AccordionContent>
                     <ViewReleaseNotesTextArea
-                      note={(changeLogsByProduct[product.code] || [])
+                      note={Object.entries(
+                        changeLogsByProduct[product.code] || {},
+                      )
                         .map(
-                          (log) =>
-                            `Version: ${log.version}\nRevision: ${log.revision}\n\n${log.description}\n\n----------------------\n`,
+                          ([version, { descriptions, date }]) =>
+                            `Version: ${version} (${new Date(date).toLocaleDateString()})\n\n` +
+                            descriptions
+                              .map((desc, index) => `${index + 1} - ${desc}`)
+                              .join("\n\n") +
+                            "\n\n-------------------------------------------------\n\n",
                         )
                         .join("")}
                     />

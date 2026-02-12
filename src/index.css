@@ -126,7 +126,7 @@ html {
       0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   }
-/* 
+  /* 
   @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -179,6 +179,21 @@ html {
     --shadow-xl: var(--shadow-xl);
     --shadow-2xl: var(--shadow-2xl);
   } */
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
 }
 
 @layer base {

@@ -28,7 +28,7 @@ export default function HamburgerMenu() {
           </Button>
         </SheetTrigger>
         <SheetContent
-          className="py-10 flex flex-col gap-4 bg-[#034383] text-white"
+          className="py-10 flex flex-col gap-4 bg-[#034383] text-white border-0"
           side={"left"}
         >
           <Accordion type="single" collapsible>

@@ -23,6 +23,7 @@ export type ChangeLog = {
   description: string;
   version: string;
   revision: string;
+  date: string;
 };
 
 export type ProductBrochure = {
@@ -33,7 +34,7 @@ export type ProductBrochure = {
 };
 
 export type ProductVersion = {
-  id: number; 
+  id: number;
   productCode: string;
   version: string;
   link: string;

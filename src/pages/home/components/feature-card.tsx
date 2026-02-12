@@ -1,5 +1,9 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { CircleSmall } from "lucide-react";
+
 // import { CenterOverlay } from "@/components/custom/center-overlay";
 
 export function FeaturesSectionDemo() {
@@ -9,14 +13,15 @@ export function FeaturesSectionDemo() {
       description: "Most Complete & Fully Integrated Systems",
       skeleton: <SkeletonOne />,
       className:
-        "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
+        "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800 p-4 sm:p-8 ",
     },
     {
       title: "Learning Management System",
       description:
         "The FIRST and ONLY school software with INTEGRATED Learning Management System",
       skeleton: <SkeletonTwo />,
-      className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
+      className:
+        "border-b col-span-1 lg:col-span-2 dark:border-neutral-800 p-4 sm:p-8 ",
     },
     {
       title: "Continuous & Active Development",
@@ -24,25 +29,26 @@ export function FeaturesSectionDemo() {
         "The ONLY school software that is CONTINUOUSLY IMPROVED (Since 1998) DOWNLOADABLE, UPGRADEABLE UNIFIED SYSTEM",
       skeleton: <SkeletonThree />,
       className:
-        "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
+        "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800 p-4 sm:p-8 ",
     },
     {
       title: "Cross-Platform",
       description:
         "The ONLY school software which is 100% Desktop and MOBILE friendly (ALL User Interfaces: Admin, Trans, Tools & Reports)",
       skeleton: <SkeletonFour />,
-      className: "col-span-1 lg:col-span-3 lg:border-none",
+      className: "col-span-1 lg:col-span-3 lg:border-none p-4 sm:p-8 ",
     },
   ];
   return (
     <section className="w-full relative p-0 m-0">
       {/* <CenterOverlay /> */}
-      <div className="w-full xs:h-[120px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[400px] 2xl:h-[460px] bg-[url('/images/overlay/center.svg')] bg-cover bg-no-repeat bg-center p-0 m-0"></div>
-
+      <AnimatedFeatureCard>
+        <div className="w-full xs:h-[120px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[400px] 2xl:h-[460px] bg-[url('/images/overlay/center.svg')] bg-cover bg-no-repeat bg-center p-0 m-0"></div>
+      </AnimatedFeatureCard>
 
       {/* CONTENT  */}
       <div className="relative z-20 pt-10 max-w-7xl mx-auto">
-        <div className="px-8">
+        <AnimatedFeatureCard className="px-8">
           <h4 className="xs:text-4xl sm:xs:text-4xl md:xs:text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl font-semibold lg:leading-tight max-w-5xl mx-auto text-center tracking-tight text-[#ffa500]">
             SIAS ONLINE (3.x)
           </h4>
@@ -50,16 +56,19 @@ export function FeaturesSectionDemo() {
           <p className="xs:text-sm sm:text-md md:text-lg lg:text-lg xl:text-lg 2xl:text-lg max-w-2xl my-4 mx-auto text-[#16294a] dark:text-white text-center font-semibold">
             The best and no. 1 school management system in the Philippines.
           </p>
-        </div>
+        </AnimatedFeatureCard>
 
         <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
             {features.map((feature) => (
-              <FeatureCard key={feature.title} className={feature.className}>
+              <AnimatedFeatureCard
+                key={feature.title}
+                className={feature.className}
+              >
                 <FeatureTitle>{feature.title}</FeatureTitle>
                 <FeatureDescription>{feature.description}</FeatureDescription>
                 <div className=" h-full w-full">{feature.skeleton}</div>
-              </FeatureCard>
+              </AnimatedFeatureCard>
             ))}
           </div>
         </div>
@@ -71,17 +80,26 @@ export function FeaturesSectionDemo() {
   );
 }
 
-const FeatureCard = ({
+const AnimatedFeatureCard = ({
   children,
   className,
 }: {
   children?: React.ReactNode;
   className?: string;
 }) => {
+  const { ref } = useInView({ threshold: 0.2, triggerOnce: true });
+
   return (
-    <div className={cn(`p-4 sm:p-8 relative overflow-hidden`, className)}>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={cn(`relative overflow-hidden`, className)}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
@@ -99,7 +117,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
       className={cn(
         "text-sm md:text-base  max-w-4xl text-left mx-auto",
         "text-[#16294a] text-center font-medium dark:text-white",
-        "text-left max-w-sm mx-0 md:text-sm my-2"
+        "text-left max-w-sm mx-0 md:text-sm my-2",
       )}
     >
       {children}
@@ -109,7 +127,7 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 
 export const SkeletonOne = () => {
   return (
-    <div className="bg-white relative flex py-5 px-2 gap-10 h-auto">
+    <div className="relative flex py-5 px-2 gap-10 h-auto">
       <div className="w-full mx-auto h-full flex justify-center items-center">
         {/* TODO */}
         <img
@@ -124,7 +142,7 @@ export const SkeletonOne = () => {
 
 export const SkeletonTwo = () => {
   return (
-    <div className="w-full h-auto mx-auto bg-white group">
+    <div className="w-full h-auto mx-auto group">
       <div className="flex flex-1 w-full h-auto flex-col space-y-2 relative mt-10">
         {/* TODO */}
         <img
@@ -139,14 +157,104 @@ export const SkeletonTwo = () => {
 
 export const SkeletonThree = () => {
   return (
-    <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
+    <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
       <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
         {/* TODO */}
-        <img
-          src="/images/continuous.png"
-          alt="header"
-          className="object-cover object-center mx-auto"
-        />
+        <div className="font-semibold w-full px-2 sm:px-4">
+          <center className="underline text-lg">
+            The Evolution of SIAS Online 3.x
+          </center>
+          <div className="mt-4 space-y-2">
+            {/* ROW 1 */}
+            <>
+              <div className="flex gap-2 text-sm sm:text-base">
+                <span className="text-red-500">1998:</span>
+                <span>SIS 1.X: LAN-based, CUSTOMIZED System</span>
+              </div>
+              <div className="flex flex-col gap-0 text-xs sm:text-sm">
+                <span className="flex items-center">
+                  <CircleSmall /> Implemented at St. Paul University Philippines
+                  (SPUP)
+                </span>
+                <span className="flex items-center">
+                  <CircleSmall /> After{" "}
+                  <span className="ms-1 text-red-500">25 years</span>, SPUP is
+                  still our client today
+                </span>
+              </div>
+            </>
+
+            {/* ROW 2 */}
+            <>
+              <div className="flex gap-2 text-sm sm:text-base">
+                <span className="text-red-500">2003:</span>
+                <span>
+                  SIAS 2.X: VPF 9.0,
+                  <span className="ms-1 text-red-500">UNIFIED System</span>
+                </span>
+              </div>
+              <div className="flex flex-col gap-0 text-xs sm:text-sm">
+                <span className="flex items-center">
+                  <CircleSmall /> Implemented at Kalinga State University (KSU)
+                </span>
+                <span className="flex items-center">
+                  <CircleSmall /> After
+                  <span className="ms-1 text-red-500">20 years</span>, KSU is
+                  still our client today
+                </span>
+                <span className="flex items-center">
+                  <CircleSmall /> Used by
+                  <span className="mx-1 text-red-500">100+</span> schools
+                  nationwide
+                </span>
+              </div>
+            </>
+
+            {/* ROW 3 */}
+            <>
+              <div className="flex gap-2 text-sm sm:text-base">
+                <span className="text-red-500">2014:</span>
+                <span>
+                  SIAS Online 3.X:
+                  <span className="mx-1 text-red-500">UNIFIED System</span>
+                  for SUCs / Private
+                </span>
+              </div>
+              <div className="flex flex-col gap-0 text-xs sm:text-sm">
+                <span className="flex items-center">
+                  <CircleSmall /> Free upgrade many old existing clients to the
+                  cloud (1-Day Upgrade)
+                </span>
+                <span className="flex items-center">
+                  <CircleSmall /> Free cloud server offered to all clients
+                </span>
+              </div>
+            </>
+
+            {/* ROW 4 */}
+            <>
+              <div className="flex gap-2 text-sm sm:text-base">
+                <span className="text-red-500">2018:</span>
+                <span>
+                  SIAS Online 3.3:
+                  <span className="mx-1 text-red-500">UNIFIED System</span>
+                  for SUCs / Private / DepED
+                </span>
+              </div>
+              <div className="flex flex-col gap-0 text-xs sm:text-sm">
+                <span className="flex items-center">
+                  <CircleSmall /> Added support for DepED specific operations
+                </span>
+                <span className="flex items-center">
+                  <CircleSmall /> Added support for Senior High School
+                </span>
+                <span className="flex items-center">
+                  <CircleSmall /> Added integrated Learning Management System
+                </span>
+              </div>
+            </>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -158,7 +266,7 @@ export const SkeletonFour = () => {
       <img
         src="/images/availability.png"
         alt="header"
-        className="object-cover object-center mx-auto bg-white"
+        className="object-cover object-center mx-auto"
       />
     </div>
   );
