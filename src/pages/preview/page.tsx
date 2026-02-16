@@ -81,10 +81,7 @@ export default function ProductPreview() {
   } = useQuery({
     queryKey: ["product-details", id],
     queryFn: async () =>
-      request<GetProductDetailsData>(
-        api_url,
-        GetProductDetailDocument,
-      ),
+      request<GetProductDetailsData>(api_url, GetProductDetailDocument),
   });
 
   const productDetailsByCode = useMemo(() => {

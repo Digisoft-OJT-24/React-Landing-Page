@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { ChangeLog, Product } from "@/types";
 import { api_url } from "@/api_url";
+import { format } from "date-fns";
 
 export default function ReleaseNotes() {
   type GetAllChangeLogsData = {
@@ -101,7 +102,7 @@ export default function ReleaseNotes() {
                       )
                         .map(
                           ([version, { descriptions, date }]) =>
-                            `Version: ${version} (${new Date(date).toLocaleDateString()})\n\n` +
+                            `Version: ${version} (${format(new Date(date), "PPP")})\n\n` +
                             descriptions
                               .map((desc, index) => `${index + 1} - ${desc}`)
                               .join("\n\n") +
